@@ -17,7 +17,7 @@
             	<div class="container">
             		<div class="row">
 
-
+                    @foreach($perfil as $p)
             			<div class="col-md-3">
             				<div class="card-perfil">
             					<div class="card-perfil-avatar">
@@ -25,34 +25,17 @@
 				                		<img src="./imgs/avatar.jpg" width="180px">
 				              		</div>
 					              	<div class="card-perfil-nome">
-					                	Nome do usuário
+					                	{{$p->name}}
 					              	</div>
 					              	<div class="card-perfil-titulos">	
 					              		Título: Awesome Hacker<br>
 					              		Nível: 37
 					              	</div>
-					              	<a href="perfil"> Acessar Perfil</a>
+					              	<a href="{{url('perfilUs', $p->id)}}"> Acessar Perfil</a>
 				            	</div>
             				</div>
             			</div>
-
-            			<div class="col-md-3">
-            				<div class="card-perfil">
-            					<div class="card-perfil-avatar">
-				              		<div class="avatar">
-				                		<img src="./imgs/avatar.jpg" width="180px">
-				              		</div>
-					              	<div class="card-perfil-nome">
-					                	Nome do usuário
-					              	</div>
-					              	<div class="card-perfil-titulos">	
-					              		Título: Noob Hacker<br>
-					              		Nível: 9
-					              	</div>
-					              	<a href="perfil"> Acessar Perfil</a>
-				            	</div>
-            				</div>
-            			</div>
+                        @endforeach
             			
             		</div>
             	</div>

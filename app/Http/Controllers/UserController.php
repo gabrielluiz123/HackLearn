@@ -72,6 +72,16 @@ class UserController extends Controller
         return view('perfil', compact('perfil', 'nome', 'id_user'));
     }
 
+      public function showPerfilUs($id)
+    {
+        $id_user = Auth::user()->id;
+        $nome = Auth::user()->name;
+
+        $perfil = User::where('id', $id)->get();
+
+        return view('perfilUs', compact('perfil', 'nome', 'id_user'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -81,6 +91,15 @@ class UserController extends Controller
     public function edit($id)
     {
         //
+    }
+
+
+    public function search(Request $request)
+    {
+        $id_user = Auth::user()->id;
+        $nome = User::where('id', $id_user)->first()->name;
+        $perfil = User::where('name','like', '%'.$request->pesquisa.'%')->get();
+        return view('pesquisa_perfil', compact('perfil','nome', 'id_user'));
     }
 
     /**

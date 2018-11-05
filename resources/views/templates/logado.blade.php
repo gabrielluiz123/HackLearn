@@ -49,9 +49,11 @@
         </div>
       </li>-->
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <form class="form-inline my-2 my-lg-0" method="POST" action="{{url('search')}}">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+      <input class="form-control mr-sm-2" required name="pesquisa" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-site" type="submit">Pesquisar</button>
+
     </form>
   </div>
 </nav>
