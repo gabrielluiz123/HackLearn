@@ -23,7 +23,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" id="link" href="{{url('home')}}">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" id="link" href="index_auth">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" id="link" href="#">Conceitos</a>
@@ -56,8 +56,8 @@
   </div>
 </nav>
 <nav class="navbar navbar-light nav-secundario">
-  <span>Logado como <a href="{{url('perfil', $id_user)}}">{{$nome}}</a></span>
-  <span class="right"><a href="{{url('auth/logout')}}">Deslogar</a></span>
+  <span>Logado como <a href="/perfil">Nome_usuário</a></span>
+  <span class="right"><a href="/">Deslogar</a></span>
 </nav>
 
 @yield ('content')

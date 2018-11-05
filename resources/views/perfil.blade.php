@@ -127,12 +127,9 @@
                         	<hr class="hr-style-2">
                       		</div>
                     	</div>
+                      <form method="POST" action="{{url('updateU')}}">
                     	<div class="row">
                       		<div class="col-md-3"></div>
-                      		<div class="col-md-6">
-                        		E-mail:
-                            	<input type="email" class="form-control" placeholder="nome@exemplo.com">
-                      		</div>
                      		<div class="col-md-3"></div>
                     	</div>
                     	<hr class="hr-style-2">
@@ -140,15 +137,13 @@
                       		<div class="col-md-3"></div>
                       			<div class="col-md-3">
                         			Nova senha:
-                            		<input type="email" class="form-control" placeholder="Nova senha">
+                            		<input type="password" required name="password" id="password" class="form-control" placeholder="Nova senha">
                       			</div>
-                      		<div class="col-md-3">
-                        		Confirmar senha:
-                            	<input type="email" class="form-control" placeholder="Confirmar nova senha">
-                      		</div>
                      		<div class="col-md-3"></div>
                       </div>
-                    	<button type="button" class="btn btn-site">Atualizar</button>
+                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    	<button type="submit" class="btn btn-site">Atualizar</button>
+                      </form>
                   	</div>
                 </div>
             </div> 

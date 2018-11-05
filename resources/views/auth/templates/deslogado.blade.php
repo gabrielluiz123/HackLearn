@@ -66,20 +66,19 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="/auth/login">
+        <form>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Nome de usuário: </label>
-            <input class="form-control" name="email"  type="email" value="{{ old('email') }}" id="email" placeholder=" Entre com nome de usuário">
+            <input class="form-control"  type="text" placeholder=" Entre com nome de usuário">
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Senha: </label>
-            <input class="form-control" type="password" id="password" name="password" placeholder=" Entre com a senha">
+            <input class="form-control" placeholder=" Entre com a senha">
           </div>
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        </form>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-site">Logar</button>
-        </form>
+        <button type="button" class="btn btn-site">Logar</button>
       </div>
     </div>
   </div>
@@ -96,19 +95,25 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="{{url('register')}}">
+        <form>
           <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10">
               <div class="form-group">
                 <label for="recipient-name" class="col-form-label">Nome completo: </label>
-                <input class="form-control"  type="text" id="nome" required name="nome" placeholder="Entre com seu nome">
+                <input class="form-control"  type="text" placeholder="Entre com seu nome">
               </div>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="message-text" class="col-form-label">Senha: </label>
-                    <input class="form-control" type="password" id="senha" required name="senha"  placeholder=" Defina sua senha">
+                    <input class="form-control" placeholder=" Defina sua senha">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="message-text" class="col-form-label">Confirme sua Senha: </label>
+                    <input class="form-control" placeholder=" Confirme sua senha">
                   </div>
                 </div>
               </div>
@@ -117,26 +122,36 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="message-text" class="col-form-label">E-mail: </label>
-                    <input class="form-control" type="email" id="email" required name="email" placeholder=" Defina sua senha">
-
+                    <input class="form-control" placeholder=" Defina sua senha">
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="message-text" class="col-form-label">Data de Nascimento: </label>
+                     <input type="date" class="form-control" id="" placeholder="Date of Birth">
+                  </div>
                 </div>
                 <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="message-text" class="col-form-label">Sexo: </label>
+                      <div class="form-group">
+                        <select class="form-control" id="sel1">
+                          <option>Masculino</option>
+                          <option>Feminino</option>
+                        </select>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             <div class="col-md-1"></div>
           </div>
-        
-      </div>
-      <input type="hidden" name="_token" value="{{ csrf_token() }}">
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-site">Cadastrar</button>
         </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-site">Cadastrar</button>
       </div>
     </div>
   </div>
