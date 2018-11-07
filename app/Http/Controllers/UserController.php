@@ -43,6 +43,7 @@ class UserController extends Controller
          User::create([
             'name' =>$request->nome,
             'email'=>$request->email,
+            'type'=> 2,
             'password'=>bcrypt($request->senha),
             ]);
         return redirect('/');
@@ -58,8 +59,13 @@ class UserController extends Controller
     {
         $id_user = Auth::user()->id;
         $nome = User::where('id', $id_user)->first()->name;
-
-        return view('index_auth', compact('nome', 'id_user'));
+        $type = Auth::user()->type;
+        if($type == 2){
+            return view('index_auth', compact('nome', 'id_user'));
+        }else{
+            return view('index_auth', compact('nome', 'id_user'));
+        }
+        
     }
 
     public function showPerfil($id)
@@ -102,13 +108,14 @@ class UserController extends Controller
         return view('pesquisa_perfil', compact('perfil','nome', 'id_user'));
     }
 
-    /**
+    /* 
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function update(Request $request)
     {
         $id_user = Auth::user()->id;

@@ -12,9 +12,6 @@
               		<div class="avatar">
                 		<img src="./imgs/avatar.jpg" width="180px">
               		</div>
-              	<div class="nome-perfil">
-                	Nome do usuário
-              	</div>
 
             	</div>
 
