@@ -27,7 +27,7 @@ class CreateQuizTable extends Migration
             $table->foreign('id_field')->references('id')->on('fields')->onUpdate('cascade');
 
             $table->string('description');
-            $table->string('question');
+            $table->integer('exp');
 
             
 

@@ -19,6 +19,7 @@ class quiz_answer_seed extends Seeder
                 "ans_2"             => "Banco de dados",
                 "ans_3" 			=> "Camada de enlace",
                 "ans_4"				=>"Camada de rede",
+                "question"          => "Onde o SQL Injection atua?",
                 "ans_C"				=> 2,
             ],
             [
@@ -28,6 +29,7 @@ class quiz_answer_seed extends Seeder
                 "ans_2"  			=> "Utilizar views",
                 "ans_3"             => "prepared statment em cada execução no sgbd",
                 "ans_4" 			=> "Utilizar bancos de dados nao relacionais",
+                "question"          => "É contramedida de SQL Injection:",
                 "ans_c"				=> 3,
             ],
               [
@@ -37,6 +39,7 @@ class quiz_answer_seed extends Seeder
                 "ans_2"  			=> "TCP Dump",
                 "ans_3"             => "Bot Nets",
                 "ans_4" 			=> "Banco de dados",
+                "question"          +> "Sao ferrametas ligadas ao DDoS:",
                 "ans_c"				=> 3,
             ],
              [
@@ -46,6 +49,7 @@ class quiz_answer_seed extends Seeder
                 "ans_2"  			=> "TCP Dump",
                 "ans_3"             => "Honeypot",
                 "ans_4" 			=> "Banco de dados",
+                "question"         => "É contramedida de DDoS:",
                 "ans_c"				=> 3,
             ],
         ]);

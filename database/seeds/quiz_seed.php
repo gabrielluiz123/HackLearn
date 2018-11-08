@@ -20,7 +20,7 @@ class quiz_seed extends Seeder
                 "id_difficulty"		=> 1,
                 "description"  		=> "Quiz sobre SQL Injection dificuldade facil",
                 "id_field"			=> 1,
-                "question"			=> "Onde o SQL Injection atua?"
+                "exp"               => 100,
             ],
             [
                 "id"         		=> 2,
@@ -30,7 +30,7 @@ class quiz_seed extends Seeder
                 "id_difficulty"		=> 2,
                 "description"  		=> "Quiz sobre SQL dificuldade medio",
                 "id_field"			=> 1,
-                "question"			=> "É contramedida de SQL Injection:",
+                "exp"               => 150,
             ],
             [
             	"id"         		=> 3,
@@ -40,7 +40,7 @@ class quiz_seed extends Seeder
                 "id_difficulty"		=> 1,
                 "description"  		=> "Quiz sobre DDoS dificuldade facil",
                 "id_field"			=> 2,
-                "question"			+> "Sao ferrametas ligadas ao DDoS:",
+                "exp"               => 150,
             ],
             [
             	"id"         		=> 4,
@@ -50,7 +50,7 @@ class quiz_seed extends Seeder
                 "id_difficulty"		=> 2,
                 "description"  		=> "Quiz sobre DDoS dificuldade facil",
                 "id_field"			=> 2,
-                "question"			=> "É contramedida de DDoS:",
+                "exp"               => 200,
             ],
         ]);
     }

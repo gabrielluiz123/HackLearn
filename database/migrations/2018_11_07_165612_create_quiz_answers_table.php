@@ -15,7 +15,7 @@ class CreateQuizAnswersTable extends Migration
 
             $table->integer('id_quiz')->unsigned();
             $table->foreign('id_quiz')->references('id')->on('quiz')->onUpdate('cascade');
-
+            $table->string('question');
             $table->string('ans_1');
             $table->string('ans_2');
             $table->string('ans_3');
