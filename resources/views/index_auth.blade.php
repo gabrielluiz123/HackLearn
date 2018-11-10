@@ -8,7 +8,6 @@
       <div class="col-md-12">
         <div class="container mask">
             <div class="mask-title">
-              slider maneiro
                 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
                   <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -16,9 +15,6 @@
                     </div>
                     <div class="carousel-item">
                       <img class="d-block w-100" src="../imgs/slider2.jpg" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                      <img class="d-block w-100" src=".../800x400?auto=yes&bg=555&fg=333&text=Third slide" alt="Third slide">
                     </div>
                   </div>
                   <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
