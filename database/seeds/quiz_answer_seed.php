@@ -39,7 +39,7 @@ class quiz_answer_seed extends Seeder
                 "ans_2"  			=> "TCP Dump",
                 "ans_3"             => "Bot Nets",
                 "ans_4" 			=> "Banco de dados",
-                "question"          +> "Sao ferrametas ligadas ao DDoS:",
+                "question"          => "Sao ferrametas ligadas ao DDoS:",
                 "ans_c"				=> 3,
             ],
              [
@@ -49,7 +49,7 @@ class quiz_answer_seed extends Seeder
                 "ans_2"  			=> "TCP Dump",
                 "ans_3"             => "Honeypot",
                 "ans_4" 			=> "Banco de dados",
-                "question"         => "É contramedida de DDoS:",
+                "question"          => "É contramedida de DDoS:",
                 "ans_c"				=> 3,
             ],
         ]);

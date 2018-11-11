@@ -63,7 +63,7 @@ class UserController extends Controller
         if($type == 2){
             return view('index_auth', compact('nome', 'id_user'));
         }else{
-            return view('index_auth', compact('nome', 'id_user'));
+            return view('index_auth_adm', compact('nome', 'id_user'));
         }
         
     }
@@ -74,9 +74,16 @@ class UserController extends Controller
         $nome = User::where('id', $id_user)->first()->name;
 
         $perfil = User::where('id', $id)->get();
+        $type = Auth::user()->type;
 
-        return view('perfil', compact('perfil', 'nome', 'id_user'));
-    }
+            if($type==1){
+            return view('index_auth_adm', compact('perfil', 'nome', 'id_user'));
+        }else{
+            return view('perfil', compact('perfil', 'nome', 'id_user'));
+        } 
+        }  
+        
+    
 
       public function showPerfilUs($id)
     {
@@ -84,8 +91,10 @@ class UserController extends Controller
         $nome = Auth::user()->name;
 
         $perfil = User::where('id', $id)->get();
-
+        
+        
         return view('perfilUs', compact('perfil', 'nome', 'id_user'));
+    
     }
 
     /**
@@ -134,8 +143,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        //
+        $id_user = Auth::user()->id; 
+
+        $user = User::findOrFail($id_user);
+
+        $user->delete();
+
+       return redirect('/');
     }
 }

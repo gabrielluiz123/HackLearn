@@ -141,6 +141,11 @@
                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     	<button type="submit" class="btn btn-site">Atualizar</button>
                       </form>
+                      <form method="get" action="{{url('deleteUser')}}">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <button type="submit" class="btn btn-site">Deletar conta</button>
+                      </form>
+                      
                   	</div>
                 </div>
             </div> 
