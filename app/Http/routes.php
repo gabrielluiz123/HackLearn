@@ -32,5 +32,7 @@ Route::group(['prefix' => '', 'middleware' => 'auth'], function(){
 		Route::post('/updateU', 'UserController@update');
 		Route::post('/search', 'UserController@search');
 		Route::get('/deleteUser', 'UserController@destroy');
+		Route::get('/area', 'QuizController@index');
+		Route::get('/quizzes/{idF}', 'QuizController@show');
 
 });

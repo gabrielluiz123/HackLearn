@@ -32,7 +32,7 @@
         <a class="nav-link" id="link" href="#">Cases</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="link" href="#">Quiz</a>
+        <a class="nav-link" id="link" href="{{url('/area')}}">Quiz</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" id="link" href="#">Ranking</a>

@@ -6,6 +6,14 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\User;
+use Auth;
+use DB;
+use App\Field;
+use App\Difficulty;
+use App\Quiz;
+use App\Quiz_user;
+use App\Quiz_answer;
 
 class QuizController extends Controller
 {
@@ -16,7 +24,14 @@ class QuizController extends Controller
      */
     public function index()
     {
-        //
+        $id_user = Auth::user()->id;
+        $nome = User::where('id', $id_user)->first()->name;
+        $type = Auth::user()->type;
+
+        $fields = Field::get();
+        $difficulty = Difficulty::get();
+
+        return view('area_quiz_page', compact('id_user', 'nome', 'type', 'fields', 'difficulty'));
     }
 
     /**
@@ -46,9 +61,20 @@ class QuizController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($idF)
     {
-        //
+        $id_user = Auth::user()->id;
+        $nome = User::where('id', $id_user)->first()->name;
+        $type = Auth::user()->type;
+
+        //$difficulty = $request->difficulty;
+        //$field = $request->fields;
+        dd($idF);
+
+        $quiz = Quiz::where('id_field', $field)->where('id_difficulty', $difficulty)->get();
+        dd($quiz);
+
+        return view('quiz_page', compact('id_user', 'nome'));
     }
 
     /**

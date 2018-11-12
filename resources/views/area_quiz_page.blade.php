@@ -16,36 +16,25 @@
    </div>
    <div class="row">
 
-
-
+   <form method="POST" action="{{url('/quizzes')}}">
+      
       <div class="col-md-3">
+      
          <div class="card-box" style="width: 100%;">
+         @foreach($fields as $f)
             <div class="card-body">
-               <a href="posts/basicHeader.html"><h4 class="card-title">TITULO 1 </h4></a><hr/>
-               <p class="card-text">Aqui vai um breve resumo de cada quiz para o usuário saber o que será mencionado.</p>
+               <a href="posts/basicHeader.html"><h4 class="card-title">{{$f->name}}</h4></a><hr/>
+               <p class="card-text">{{$f->description}}</p>
             </div>
+            <input type="hidden" name="fields" value="{{$f->id}}">
             <div class="row"> 
                <div class="col-md-6"> 
                   <div class="form-group">
                      <label for="exampleFormControlSelect1">Dificuldade</label>
-                     <select class="form-control" id="exampleFormControlSelect1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                     </select>
-                  </div>
-               </div>
-               <div class="col-md-6"> 
-                  <div class="form-group">
-                     <label for="exampleFormControlSelect1">Quantidade</label>
-                     <select class="form-control" id="exampleFormControlSelect1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                     <select class="form-control" name="difficulty" id="exampleFormControlSelect1">
+                     @foreach($difficulty as $d)
+                        <option value="{{$d->id}}">{{$d->description}}</option>
+                     @endforeach
                      </select>
                   </div>
                </div>
@@ -53,13 +42,16 @@
             
 
             <div class="quiz-submit"> 
-               <a href="quiz_page"><button type="button" class="btn btn-outline-success">Encontrar Quizzes</button></a>
+               <a href="{{url('/quizzes', $f->id)}}"><button type="button" class="btn btn-outline-success">Encontrar Quizzes</button></a>
             </div>
 
 
-            
+            @endforeach
          </div>
+         
       </div>  
+      
+      </form>
    </div>
 
 
