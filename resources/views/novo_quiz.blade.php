@@ -13,72 +13,38 @@
 				</div>
 				
 				<div class="quiz-content">
-					<form>
+					<form method="POST" action="{{url('storeQuiz')}}">
 						<div class="form-group">
 							<label for="formGroupExampleInput">Título</label>
-							<input type="text" class="form-control" id="formGroupExampleInput" placeholder="Como se chama o Quiz?">
+							<input type="text" class="form-control" id="titulo" name="titulo" placeholder="Como se chama o Quiz?">
 						</div>
 						<div class="form-group">
 							<label for="formGroupExampleInput2">Breve descrição</label>
-							<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Dê uma breve explicação">
+							<input type="text" class="form-control" id="descricao" name="descricao" placeholder="Dê uma breve explicação">
 						</div>
 						<div class="form-group">
-							<label for="exampleFormControlTextarea1">Enunciado</label>
-							<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Qual o enunciado do Quiz?"></textarea>
+							<label for="formGroupExampleInput2">Experiencia</label>
+							<input type="text" class="form-control" id="exp" name="exp" placeholder="Experiencia adquirida pelo qui"z>
 						</div>
-						<hr>
-						<div class="form-group">
-							<label for="formGroupExampleInput2">Alternativa 1</label>
-							<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Escreva a primeira alternativa">
-						</div>
-						<div class="form-group">
-							<label for="formGroupExampleInput2">Alternativa 2</label>
-							<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Escreva a segunda alternativa">
-						</div>
-						<div class="form-group">
-							<label for="formGroupExampleInput2">Alternativa 3</label>
-							<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Escreva a terceira alternativa">
-						</div>
-						<div class="form-group">
-							<label for="formGroupExampleInput2">Alternativa 4</label>
-							<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Escreva a quarta alternativa">
-						</div>
+
 						<hr>
 						<div class="row">
-							<!--Dropdown dificuldade -->
 							<div class="col-md-5">
 								<div class="dropdown show">
-									<a class="btn btn-warning dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										Definir resposta correta
-									</a>
-
-									<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-										<a class="dropdown-item" href="#">1</a>
-										<a class="dropdown-item" href="#">2</a>
-										<a class="dropdown-item" href="#">3</a>
-										<a class="dropdown-item" href="#">4</a>
-									</div>
+									<label for="exampleFormControlSelect1">Área</label>
+                     <select class="dropdown show" name="field" id="exampleFormControlSelect1">
+            		 
+            		 @foreach($fields as $f)
+                        <option value="{{$f->id}}">{{$f->name}}</option>
+                     @endforeach
+                     </select>
 								</div>
 							</div>
 							<!-- Termina aqui -->
-							<!--Dropdown áreas -->
-							<div class="col-md-5">
-								<div class="dropdown show">
-									<a class="btn btn-warning dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										Definir área do Quiz
-									</a>
-
-									<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-										<a class="dropdown-item" href="#">Assunto 1</a>
-										<a class="dropdown-item" href="#">Assunto 2</a>
-									</div>
-								</div>
-							</div>
-							<!-- Termina aqui -->
-
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 							<div class="col-md-2">
 								<div class="quiz-submit"> 
-									<input class="btn btn-success" type="button" value="Sugerir Quiz">
+									<input class="btn btn-success" type="submit" value="Sugerir Quiz">
 								</div>
 							</div>
 

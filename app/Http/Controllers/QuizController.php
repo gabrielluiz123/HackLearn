@@ -41,7 +41,14 @@ class QuizController extends Controller
      */
     public function create()
     {
-        //
+        $id_user = Auth::user()->id;
+        $nome = User::where('id', $id_user)->first()->name;
+        $type = Auth::user()->type;
+
+        $fields = Field::get();
+
+
+        return view('novo_quiz', compact('id_user', 'nome', 'type', 'fields'));
     }
 
     /**
@@ -50,9 +57,49 @@ class QuizController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeQuiz(Request $request)
     {
-        //
+        $id_user = Auth::user()->id;
+
+         Quiz::create([
+            'name'          => $request->titulo,
+            'id_user'       => $id_user,
+            'status'        => 0,
+            'id_difficulty' => 1,
+            'id_field'      => $request->field,
+            'description'   => $request->descricao,
+            'exp'           => $request->exp,
+            ]);
+         
+        $nome_quiz = $request->titulo;
+        $nome = User::where('id', $id_user)->first()->name;
+
+         $id_quiz = DB::table('quiz')
+                ->orderBy('id', 'desc')
+                ->first()->id;
+
+        return view('novo_quiz_questoes', compact('numero', 'id_user', 'id_quiz', 'nome', 'nome_quiz'));
+    }
+
+    public function storeAnswer(Request $request)
+    {
+        $id_quiz = $request->id_quiz;
+
+        Quiz_answer::create([
+            'question'      => $request->questao,
+            'id_quiz'       => $id_quiz,
+            'ans_1'         => $request->q1,
+            'ans_2'         => $request->q2,
+            'ans_3'         => $request->q3,
+            'ans_4'         => $request->q4,
+            'ans_c'         => $request->certa,
+            ]);
+
+        $id_user = Auth::user()->id;
+        $nome_quiz = Quiz::where('id', $id_quiz)->first()->name;
+        $nome = User::where('id', $id_user)->first()->name;
+
+        return view('novo_quiz_questoes', compact('id_user', 'id_quiz', 'nome', 'nome_quiz'));
     }
 
     /**

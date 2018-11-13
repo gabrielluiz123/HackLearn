@@ -30,7 +30,7 @@
 							<a class="nav-link" id="alterar-info-pill" data-toggle="tab" href="#alterar-info" role="tab" aria-controls="contact" aria-selected="false">Alterar Informações</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" id="validar-quizzes-pill" data-toggle="tab" href="#validar-quizzes" role="tab" aria-controls="contact" aria-selected="false">Validar Quizzes</a>
+							<a class="nav-link" id="validar-quizzes-pill" data-toggle="tab" href="#validar-quizzes" role="tab" aria-controls="contact" aria-selected="false">Validar Quizzes [{{$numero}}]</a>
 						</li>
 					</ul>
 				</div>

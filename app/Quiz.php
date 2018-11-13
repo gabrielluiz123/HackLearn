@@ -13,5 +13,19 @@ class Quiz extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'id_user', 'status', 'difficulty', 'description', 'id_fields'];
+    protected $fillable = ['name', 'id_user', 'status', 'id_difficulty', 'description', 'id_field', 'exp'];
+
+        public function User()
+    {
+        return $this->belongsTo(User::class,'id_user');
+    }
+        public function Difficulty()
+    {
+        return $this->belongsTo(Difficulty::class,'id_difficulty');
+    }
+    
+        public function Field()
+    {
+        return $this->belongsTo(Field::class,'id_fields');
+    }
 }

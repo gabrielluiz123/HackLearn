@@ -13,5 +13,5 @@ class Quiz_answer extends Model
      *
      * @var array
      */
-    protected $fillable = ['id_quiz', 'ans_1', 'ans_2', 'ans_3', 'ans_4', 'ans_c'];
+    protected $fillable = ['question','id_quiz', 'ans_1', 'ans_2', 'ans_3', 'ans_4', 'ans_c'];
 }

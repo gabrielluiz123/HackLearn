@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Auth;
 use DB;
+use App\Quiz;
+use App\Quiz_answer;
 
 class UserController extends Controller
 {
@@ -76,8 +78,18 @@ class UserController extends Controller
         $perfil = User::where('id', $id)->get();
         $type = Auth::user()->type;
 
-            if($type==1){
-            return view('index_auth_adm', compact('perfil', 'nome', 'id_user'));
+        $quiz = Quiz::where('status', 0)->get();
+
+        $numero = count($quiz);
+
+
+
+        //$quiz2 = Quiz::join('quiz_answers', 'quiz.id', '=', 'quiz_answers.id')->where('quiz.status', 0)->get();
+
+       // $quiz_answer = Quiz_answer::where('status', 0)->join('quiz', 'quiz_answers.id', '=', 'quiz.id') ->get();
+
+        if($type==1){
+            return view('index_auth_adm', compact('perfil', 'nome', 'id_user', 'quiz', 'numero'));
         }else{
             return view('perfil', compact('perfil', 'nome', 'id_user'));
         } 
