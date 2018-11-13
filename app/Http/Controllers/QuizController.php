@@ -124,6 +124,24 @@ class QuizController extends Controller
         return view('quiz_page', compact('id_user', 'nome'));
     }
 
+    public function validarQuiz($id)
+    {
+        $id_user = Auth::user()->id;
+        $nome = User::where('id', $id_user)->first()->name;
+
+        $quiz_a = Quiz::where('id', $id)->first()->id_field;
+        $quiz_area = Field::where('id', $quiz_a)->first()->name;
+
+        $quiz_u = Quiz::where('id', $id)->first()->id_user;
+        $quiz_user = User::where('id', $quiz_u)->first()->name;
+
+        $quiz = Quiz::where('id', $id)->get();
+
+        $difficulty = Difficulty::get();
+
+        return view('validar_quiz', compact('id_user', 'nome', 'quiz', 'quiz_area', 'quiz_user','difficulty'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

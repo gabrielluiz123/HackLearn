@@ -14,20 +14,27 @@
 			</div>
 			<div class="container mask">
 				<div class="quiz-title">
-					NOME DO QUIZ
+				@foreach($quiz as $q)
+					{{$q->name}}
+				@endforeach
 				</div>
 				<div class="quiz-info">
 					<div class="quiz-sub-title text-center">
 						<div class="row">
-							<div class="col-md-4">Área sugerida:</div>
-							<div class="col-md-8">Usuário responsável:</div>
+							<div class="col-md-4">Área sugerida: {{$quiz_area}}</div>
+							<div class="col-md-8">Usuário responsável: {{$quiz_user}}</div>
 						</div>
 
 					</div>
 				</div>
 				<hr>
 				<div class="quiz-content">
-					Descrição para saber sobre o que é o quiz. Descrição para saber sobre o que é o quiz. Descrição para saber sobre o que é o quiz. Descrição para saber sobre o que é o quiz. Descrição para saber sobre o que é o quiz. Descrição para saber sobre o que é o quiz. 
+					@foreach($quiz as $q)
+					<div class="quiz-sub-title text-left">
+						<div class="col-md-4">Descrição:</div> 
+						</div>
+						{{$q->description}}
+					@endforeach 
 					<hr>
 					Enunciado necessário para resolução do quiz. Enunciado necessário para resolução do quiz. Enunciado necessário para resolução do quiz. Enunciado necessário para resolução do quiz. Enunciado necessário para resolução do quiz. Enunciado necessário para resolução do quiz. Enunciado necessário para resolução do quiz. Enunciado necessário para resolução do quiz. Enunciado necessário para resolução do quiz.
 
@@ -59,29 +66,25 @@
 							
 
 							<div class="dropdown show">
-								<a class="btn btn-warning dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Definir dificuldade
-								</a>
+								<label for="exampleFormControlSelect1">Dificuldade:</label>
+									 <select class="dropdown show" name="dificuldade" id="dificuldade">
+									 @foreach($difficulty as $d)
+                        					<option value="{{$d->id}}">{{$d->description}}</option>
+                        			 @endforeach		
 
-								<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-									<a class="dropdown-item" href="#">1</a>
-									<a class="dropdown-item" href="#">2</a>
-									<a class="dropdown-item" href="#">3</a>
-									<a class="dropdown-item" href="#">4</a>
-									<a class="dropdown-item" href="#">5</a>
-								</div>
+                    				 </select>
 							</div>
 						</div>
 						<!-- Termina aqui -->
 
 						<div class="col-md-2">
 							<div class="quiz-submit"> 
-								<input class="btn btn-success" type="button" value="Validar Quiz">
+								<input class="btn btn-success" type="submit" value="Validar Quiz">
 							</div>
 						</div>
 						<div class="col-md-2">
 							<div class="quiz-submit"> 
-								<input class="btn btn-danger" type="button" value="Recusar Quiz">
+								<a href="{{url('/declineQuiz')}}"><input class="btn btn-danger" type="button" value="Recusar Quiz"></a>
 							</div>
 						</div>
 					</div>
