@@ -51,31 +51,13 @@ class UserController extends Controller
         return redirect('/');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show()
-    {
-        $id_user = Auth::user()->id;
-        $nome = User::where('id', $id_user)->first()->name;
-        $type = Auth::user()->type;
-        if($type == 2){
-            return view('index_auth', compact('nome', 'id_user'));
-        }else{
-            return view('index_auth_adm', compact('nome', 'id_user'));
-        }
-        
-    }
 
-    public function showPerfil($id)
+    public function showPerfil()
     {
         $id_user = Auth::user()->id;
         $nome = User::where('id', $id_user)->first()->name;
 
-        $perfil = User::where('id', $id)->get();
+        $perfil = User::where('id', $id_user)->get();
         $type = Auth::user()->type;
 
         $quiz = Quiz::where('status', 0)->get();

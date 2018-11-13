@@ -61,7 +61,7 @@
   </div>
 </nav>
 <nav class="navbar navbar-light nav-secundario">
-  <span>Logado como <a href="{{url('perfil', $id_user)}}">{{$nome}}</a></span>
+  <span>Logado como <a href="{{url('perfil')}}">{{$nome}}</a></span>
   <span class="right"><a href="{{url('auth/logout')}}">Deslogar</a></span>
 </nav>
 

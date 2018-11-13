@@ -26,8 +26,8 @@ Route::get('/', function(){
 	else return redirect('home');
 });
 Route::group(['prefix' => '', 'middleware' => 'auth'], function(){
-		Route::get('/home','UserController@show');
-		Route::get('/perfil/{id}', 'UserController@showPerfil');
+		Route::get('/home','UserController@showPerfil');
+		Route::get('/perfil', 'UserController@showPerfil');
 		Route::get('/perfilUs/{id}', 'UserController@showPerfilUs');
 		Route::post('/updateU', 'UserController@update');
 		Route::post('/search', 'UserController@search');
