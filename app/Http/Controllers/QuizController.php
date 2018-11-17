@@ -139,7 +139,25 @@ class QuizController extends Controller
 
         $difficulty = Difficulty::get();
 
-        return view('validar_quiz', compact('id_user', 'nome', 'quiz', 'quiz_area', 'quiz_user','difficulty'));
+        $quiz_answer = Quiz_answer::where('id_quiz', $id)->get();
+
+
+        return view('validar_quiz', compact('id_user', 'nome', 'quiz', 'quiz_area', 'quiz_user','difficulty', 'quiz_answer'));
+    }
+
+    public function validarQuizUpdate(Request $request)
+    {
+        $id_quiz = $request->id_quiz;
+
+        $quiz = Quiz::findOrFail($id_quiz);
+
+
+
+        $quiz->update([
+            'status'        => 1,
+            'id_difficulty'    => $request->dificuldade,
+            ]);
+        return redirect('/');
     }
 
     /**
