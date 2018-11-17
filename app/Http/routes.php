@@ -33,7 +33,7 @@ Route::group(['prefix' => '', 'middleware' => 'auth'], function(){
 		Route::post('/search', 'UserController@search');
 		Route::get('/deleteUser', 'UserController@destroy');
 		Route::get('/area', 'QuizController@index');
-		Route::get('/quizzes/{idF}', 'QuizController@show');
+		Route::post('/quizzes', 'QuizController@show');
 		Route::get('/newQuiz', 'QuizController@create');
 		Route::post('/storeQuiz', 'QuizController@storeQuiz');
 		Route::post('/storeAnswer', 'QuizController@storeAnswer');

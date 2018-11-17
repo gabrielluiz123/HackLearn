@@ -108,20 +108,17 @@ class QuizController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($idF)
+    public function show(Request $request)
     {
         $id_user = Auth::user()->id;
         $nome = User::where('id', $id_user)->first()->name;
         $type = Auth::user()->type;
 
-        //$difficulty = $request->difficulty;
-        //$field = $request->fields;
-        dd($idF);
+        $quiz = Quiz::where('id_field', $request->field)->where('id_difficulty', $request->dificuldade)->get();
 
-        $quiz = Quiz::where('id_field', $field)->where('id_difficulty', $difficulty)->get();
-        dd($quiz);
 
-        return view('quiz_page', compact('id_user', 'nome'));
+
+        return view('quiz_page', compact('id_user', 'nome', 'quiz'));
     }
 
     public function validarQuiz($id)

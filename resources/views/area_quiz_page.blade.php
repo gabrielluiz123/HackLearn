@@ -19,36 +19,42 @@
    <form method="POST" action="{{url('/quizzes')}}">
       
       <div class="col-md-3">
-      
+      @foreach($fields as $f)
          <div class="card-box" style="width: 100%;">
-         @foreach($fields as $f)
+         <form method="POST" action="{{url('/quizzes')}}">
+         
             <div class="card-body">
                <a href="posts/basicHeader.html"><h4 class="card-title">{{$f->name}}</h4></a><hr/>
                <p class="card-text">{{$f->description}}</p>
             </div>
-            <input type="hidden" name="fields" value="{{$f->id}}">
+            <br>
             <div class="row"> 
                <div class="col-md-6"> 
-                  <div class="form-group">
-                     <label for="exampleFormControlSelect1">Dificuldade</label>
-                     <select class="form-control" name="difficulty" id="exampleFormControlSelect1">
-                     @foreach($difficulty as $d)
-                        <option value="{{$d->id}}">{{$d->description}}</option>
-                     @endforeach
-                     </select>
-                  </div>
+                  <div class="dropdown show">
+                        <label for="exampleFormControlSelect1">Dificuldade:</label>
+                            <select class="dropdown show" name="dificuldade" id="dificuldade">
+                            @foreach($difficulty as $d)
+                                       <option value="{{$d->id}}">{{$d->description}}</option>
+                            @endforeach      
+
+                               </select>
+                              
+                     </div>
                </div>
             </div>  
             
-
+ <br>
             <div class="quiz-submit"> 
-               <a href="{{url('/quizzes', $f->id)}}"><button type="button" class="btn btn-outline-success">Encontrar Quizzes</button></a>
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="field" id="field" value="{{$f->id}}">
+             <button type="submit" class="btn btn-outline-success">Encontrar Quizzes</button>
             </div>
 
 
-            @endforeach
+            
+            </form>
          </div>
-         
+         @endforeach
       </div>  
       
       </form>
