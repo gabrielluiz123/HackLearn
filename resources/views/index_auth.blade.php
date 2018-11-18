@@ -76,9 +76,9 @@
             {{$i=1}}
             @foreach($ranking as $r)
               @if(!$i==1)
-                   - {{$r->name}}<br>
+                   - {{$r->name}} - EXP {{$r->exp}} EXP<br>
               @else
-                {{$i++}} - {{$r->name}}<br>
+                {{$i++}} - {{$r->name}} - EXP: {{$r->exp}} <br>
               @endif  
             @endforeach
             </div>

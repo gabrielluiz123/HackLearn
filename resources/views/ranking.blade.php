@@ -11,18 +11,19 @@
                 RANKING
             </div>
             <div class="mask-content-top10">
-            <p>1 - Nome completo - Experiência</p> 
-            <p>2 - Nome completo - Experiência</p>  
-            <p>3 - Nome completo - Experiência</p>  
-            <p>4 - Nome completo - Experiência</p>  
-            <p>5 - Nome completo - Experiência</p>  
-            <p>6 - Nome completo - Experiência</p>  
-            <p>7 - Nome completo - Experiência</p>  
-            <p>8 - Nome completo - Experiência</p>  
-            <p>9 - Nome completo - Experiência</p>  
-            <p>10 - Nome completo - Experiência</p>  
+            {{$i=1}}
+            @foreach($ranking as $r)
+                <p>{{$i++}} - {{$r->name}} - EXP:{{$r->exp}}</p>  
+            @endforeach
             <hr>
-            <p>Sua posição: 9999 - Nome completo - Experiência</p> 
+            <p>
+
+            @foreach($ranking as $r)
+                @if($id_user == $r->id_user)
+                    <p>Sua posição: {{$posicao}} - {{$r->name}} - EXP:{{$r->exp}}</p>  
+                @endif
+            @endforeach
+
             </div>
         </div> 
       </div>

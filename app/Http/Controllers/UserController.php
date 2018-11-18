@@ -108,7 +108,20 @@ class UserController extends Controller
 
     public function ranking()
     {
-        
+        $id_user = Auth::user()->id;
+        $nome = Auth::user()->name;
+        $ranking = User_attribute::join('users', 'user_attributes.id_user', '=', 'users.id')->orderBy('user_attributes.exp', 'desc')->get();
+        $j=1;
+        foreach ($ranking as $r) {
+            if($r->id_user == $id_user)
+            {
+                $posicao = $j;
+            }
+            $j++;
+        }
+         
+
+        return view('ranking', compact('nome', 'id_user', 'ranking', 'posicao'));
     }
     /**
      * Show the form for editing the specified resource.
