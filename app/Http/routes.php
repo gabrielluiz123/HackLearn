@@ -26,7 +26,7 @@ Route::get('/', function(){
 	else return redirect('home');
 });
 Route::group(['prefix' => '', 'middleware' => 'auth'], function(){
-		Route::get('/home','UserController@showPerfil');
+		Route::get('/home','UserController@index');
 		Route::get('/perfil', 'UserController@showPerfil');
 		Route::get('/perfilUs/{id}', 'UserController@showPerfilUs');
 		Route::post('/updateU', 'UserController@update');
@@ -40,5 +40,6 @@ Route::group(['prefix' => '', 'middleware' => 'auth'], function(){
 		Route::post('/storeAnswer', 'QuizController@storeAnswer');
 		Route::get('/validateQuiz/{id}', 'QuizController@validarQuiz'); 
 		Route::post('/validateQuizUp', 'QuizController@validarQuizUpdate');	
+		Route::get('/ranking', 'UserController@ranking');
 
 });

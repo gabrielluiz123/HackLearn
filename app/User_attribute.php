@@ -14,4 +14,9 @@ class User_attribute extends Model
      * @var array
      */
     protected $fillable = ['id_user', 'exp', 'title'];
+
+        public function User()
+    {
+        return $this->belongsTo(User::class,'id_user');
+    }
 }

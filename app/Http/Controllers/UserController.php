@@ -23,7 +23,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $id_user = Auth::user()->id;
+        $nome = User::where('id', $id_user)->first()->name;
+        $ranking = User_attribute::join('users', 'user_attributes.id', '=', 'users.id')->orderBy('user_attributes.exp', 'desc')->limit(10)->get();
+         
+
+        return view('index_auth', compact('nome', 'id_user', 'ranking'));
     }
 
     /**
@@ -33,7 +38,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        
+
+
     }
 
     /**
@@ -70,7 +77,7 @@ class UserController extends Controller
         $title = Title::where('id', $attributes_title)->first()->name;
 
         $attributes_exp = User_attribute::where('id_user', $id_user)->first()->exp;
-        
+
 
         if($type==1){
             return view('index_auth_adm', compact('perfil', 'nome', 'id_user', 'quiz', 'numero', 'title', 'attributes_exp'));
@@ -98,6 +105,11 @@ class UserController extends Controller
     
     }
 
+
+    public function ranking()
+    {
+        
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -108,6 +120,8 @@ class UserController extends Controller
     {
         //
     }
+
+
 
 
     public function search(Request $request)

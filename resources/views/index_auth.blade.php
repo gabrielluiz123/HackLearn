@@ -73,16 +73,14 @@
               Ranking - TOP 10
             </div>
             <div class="mask-content-top10">
-            1 - Nome<br>
-            2 - Nome<br>
-            3 - Nome<br>  
-            4 - Nome<br>
-            5 - Nome<br>
-            6 - Nome<br>  
-            7 - Nome<br>
-            8 - Nome<br>
-            9 - Nome<br> 
-            10 - Nome<br>   
+            {{$i=1}}
+            @foreach($ranking as $r)
+              @if(!$i==1)
+                   - {{$r->name}}<br>
+              @else
+                {{$i++}} - {{$r->name}}<br>
+              @endif  
+            @endforeach
             </div>
             
           </div>
