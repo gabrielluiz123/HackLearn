@@ -6,21 +6,23 @@
 
 <div class="container principal">
    <div class="row">
+   @foreach($quiz as $q)
       <div class="col-md-12">
          <div class="container mask">
             <div class="quiz-title">
-               NOME DO QUIZ
+               {{$q->name}} - {{$Field}}
             </div>
             <div class="quiz-info">
                   <div class="quiz-sub-title text-center">
                      <div class="row">
-                     <div class="col-md-4">Keywords: </div>
-                     <div class="col-md-4">Dificuldade:</div>
-                     <div class="col-md-4">Outra Opcao</div>
+                     <div class="col-md-4">Usuario criador: {{$userC}} </div>
+                     <div class="col-md-4">Dificuldade: {{$dificuldade}}</div>
+                     <div class="col-md-4">Exp: {{$q->exp}}</div>
                   </div>
 
                </div>
             </div>
+            @endforeach
             <hr>
             <div class="quiz-content">
                Enunciado necessário para resolução do quiz. Enunciado necessário para resolução do quiz. Enunciado necessário para resolução do quiz. Enunciado necessário para resolução do quiz. Enunciado necessário para resolução do quiz. Enunciado necessário para resolução do quiz. Enunciado necessário para resolução do quiz. Enunciado necessário para resolução do quiz. Enunciado necessário para resolução do quiz.
@@ -46,9 +48,9 @@
                 <input type="radio" class="form-check-input" name="optradio">Option 4
               </label>
             </div>
+            </div>
             <div class="quiz-submit"> 
                <button type="button" class="btn btn-outline-success">Submeter</button>
-            </div>
             </div>
             
          </div>

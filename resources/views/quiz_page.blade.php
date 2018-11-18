@@ -9,7 +9,7 @@
       <div class="col-md-12">
          <div class="container mask">
             <div class="quiz-title">
-               QUIZZES
+               QUIZZES - {{$field}} - {{$dificuldade}}
             </div>
          </div>
       </div>
@@ -17,15 +17,15 @@
    <div class="row">
 
 
-
+   @foreach($quiz as $q)
       <div class="col-md-3">
          <div class="card-box" style="width: 100%;">
             <div class="card-body">
-               <a href="posts/basicHeader.html"><h4 class="card-title">TITULO 1 </h4></a><hr/>
-               <p class="card-text">Aqui vai um breve resumo de cada quiz para o usuário saber o que será mencionado.</p>
+               <h4 class="card-title">{{$q->name}}</h4><hr/>
+               <p class="card-text">{{$q->description}} -- EXP: {{$q->exp}}</p>
             </div>
             <div class="quiz-submit"> 
-               <a href="quiz_solution"><button type="button" class="btn btn-outline-success">Responder</button></a>
+               <a href="{{url('quizzesArea', $q->id)}}"><button type="button" class="btn btn-outline-success">Responder</button></a>
             </div>
             <hr>
             <div class="card-info">
@@ -33,6 +33,7 @@
             </div>
          </div>  
       </div>
+      @endforeach
 
 
 

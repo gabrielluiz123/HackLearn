@@ -34,6 +34,7 @@ Route::group(['prefix' => '', 'middleware' => 'auth'], function(){
 		Route::get('/deleteUser', 'UserController@destroy');
 		Route::get('/area', 'QuizController@index');
 		Route::post('/quizzes', 'QuizController@show');
+		Route::get('/quizzesArea/{idQ}', 'QuizController@showQuiz');
 		Route::get('/newQuiz', 'QuizController@create');
 		Route::post('/storeQuiz', 'QuizController@storeQuiz');
 		Route::post('/storeAnswer', 'QuizController@storeAnswer');
