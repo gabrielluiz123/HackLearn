@@ -30,7 +30,7 @@
             <hr>
             <div class="form-check">
               <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optradio">Option 1
+                <input type="radio" class="form-check-input" name=" ">Option 1
               </label>
             </div>
             <div class="form-check">

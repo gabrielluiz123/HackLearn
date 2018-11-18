@@ -43,13 +43,12 @@
 								<div class="row">
 									<div class="col-md-7">
 										<div class="home-page-perfil-text-nivel">
-											Título: noob hacker	
+											Título: {{$title}}
 										</div>
 									</div>
 									<div class="col-md-5">
 										<div class="home-page-perfil-text-exp">
-											<b>NÍVEL: 9</b><br>
-											Experiência: [120/200]<br>
+											Experiência: {{$attributes_exp}}<br>
 											Quizes: [10/15]<br>
 											Cases: [2/4]
 										</div>	

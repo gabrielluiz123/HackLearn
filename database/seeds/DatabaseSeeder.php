@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
         $this->call(field_seed::class);
         $this->call(quiz_seed::class);
         $this->call(quiz_answer_seed::class);
+        $this->call(title_seed::class);
+        $this->call(user_attributes_seed::class);
 
         Model::reguard();
     }

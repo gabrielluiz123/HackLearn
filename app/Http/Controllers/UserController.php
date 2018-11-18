@@ -11,6 +11,8 @@ use Auth;
 use DB;
 use App\Quiz;
 use App\Quiz_answer;
+use App\User_attribute;
+use App\Title;
 
 class UserController extends Controller
 {
@@ -64,16 +66,16 @@ class UserController extends Controller
 
         $numero = count($quiz);
 
+        $attributes_title = User_attribute::where('id_user', $id_user)->first()->id_title;
+        $title = Title::where('id', $attributes_title)->first()->name;
 
-
-        //$quiz2 = Quiz::join('quiz_answers', 'quiz.id', '=', 'quiz_answers.id')->where('quiz.status', 0)->get();
-
-       // $quiz_answer = Quiz_answer::where('status', 0)->join('quiz', 'quiz_answers.id', '=', 'quiz.id') ->get();
+        $attributes_exp = User_attribute::where('id_user', $id_user)->first()->exp;
+        
 
         if($type==1){
-            return view('index_auth_adm', compact('perfil', 'nome', 'id_user', 'quiz', 'numero'));
+            return view('index_auth_adm', compact('perfil', 'nome', 'id_user', 'quiz', 'numero', 'title', 'attributes_exp'));
         }else{
-            return view('perfil', compact('perfil', 'nome', 'id_user'));
+            return view('perfil', compact('perfil', 'nome', 'id_user', 'attributes_exp', 'title'));
         } 
         }  
         
@@ -84,10 +86,15 @@ class UserController extends Controller
         $id_user = Auth::user()->id;
         $nome = Auth::user()->name;
 
+        $attributes_title = User_attribute::where('id_user', $id)->first()->id_title;
+        $title = Title::where('id', $attributes_title)->first()->name;
+
+        $attributes_exp = User_attribute::where('id_user', $id)->first()->exp;
+
         $perfil = User::where('id', $id)->get();
         
         
-        return view('perfilUs', compact('perfil', 'nome', 'id_user'));
+        return view('perfilUs', compact('perfil', 'nome', 'id_user', 'attributes_exp', 'title'));
     
     }
 
