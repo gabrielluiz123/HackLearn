@@ -113,12 +113,35 @@ class QuizController extends Controller
         $id_user = Auth::user()->id;
         $nome = User::where('id', $id_user)->first()->name;
         $type = Auth::user()->type;
+        $dificuldade = Difficulty::where('id', $request->dificuldade)->first()->description;
+        $field = Field::where('id', $request->field)->first()->name;
 
-        $quiz = Quiz::where('id_field', $request->field)->where('id_difficulty', $request->dificuldade)->get();
+        $quiz = Quiz::where('id_field', $request->field)->where('id_difficulty', $request->dificuldade)->where('status', 1)->get();
 
 
 
-        return view('quiz_page', compact('id_user', 'nome', 'quiz'));
+        return view('quiz_page', compact('id_user', 'nome', 'quiz', 'dificuldade', 'field'));
+    }
+
+    public function showQuiz($idQ)
+    {
+
+        $id_user = Auth::user()->id;
+        $nome = User::where('id', $id_user)->first()->name;
+        $type = Auth::user()->type;
+
+        $quiz = Quiz::where('id', $idQ)->get();
+
+        $quizD_id = Quiz::where('id', $idQ)->first()->id_difficulty;
+        $dificuldade = Difficulty::where('id', $quizD_id)->first()->description;
+
+        $quizU_id = Quiz::where('id', $idQ)->first()->id_user;
+        $userC = User::where('id', $quizU_id)->first()->name;
+
+        $quizF_id = Quiz::where('id', $idQ)->first()->id_field;
+        $Field = Field::where('id', $quizF_id)->first()->name;
+
+        return view('quiz_solution', compact('id_user', 'nome', 'quiz', 'dificuldade', 'userC', 'Field'));
     }
 
     public function validarQuiz($id)
