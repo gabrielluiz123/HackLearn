@@ -43,7 +43,7 @@
 		                  			<div class="col-md-5">
 		                  				<div class="home-page-perfil-text-exp">
 				                  			Experiência: {{$attributes_exp}}<br>
-				                  			Quizes: [10/15]<br>
+				                  			Quizes: [{{$nQuizuser}}/{{$nQuiz}}]<br>
 				                  			Cases: [2/4]
 				                 		</div>	
 		                  			</div>

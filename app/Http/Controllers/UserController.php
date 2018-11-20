@@ -13,6 +13,7 @@ use App\Quiz;
 use App\Quiz_answer;
 use App\User_attribute;
 use App\Title;
+use App\Quiz_user;
 
 class UserController extends Controller
 {
@@ -78,11 +79,16 @@ class UserController extends Controller
 
         $attributes_exp = User_attribute::where('id_user', $id_user)->first()->exp;
 
+        $quiz = Quiz::get();
+        $nQuiz = count($quiz);
+
+        $quiz_user = Quiz_user::where('id_user', $id_user)->get();
+        $nQuizuser = count($quiz_user);
 
         if($type==1){
-            return view('index_auth_adm', compact('perfil', 'nome', 'id_user', 'quiz', 'numero', 'title', 'attributes_exp'));
+            return view('index_auth_adm', compact('perfil', 'nome', 'id_user', 'quiz', 'numero', 'title', 'attributes_exp', 'nQuiz', 'nQuizuser'));
         }else{
-            return view('perfil', compact('perfil', 'nome', 'id_user', 'attributes_exp', 'title'));
+            return view('perfil', compact('perfil', 'nome', 'id_user', 'attributes_exp', 'title', 'nQuiz', 'nQuizuser'));
         } 
         }  
         
