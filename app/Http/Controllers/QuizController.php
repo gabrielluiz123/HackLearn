@@ -14,6 +14,7 @@ use App\Difficulty;
 use App\Quiz;
 use App\Quiz_user;
 use App\Quiz_answer;
+use App\User_attribute;
 
 class QuizController extends Controller
 {
@@ -141,7 +142,55 @@ class QuizController extends Controller
         $quizF_id = Quiz::where('id', $idQ)->first()->id_field;
         $Field = Field::where('id', $quizF_id)->first()->name;
 
-        return view('quiz_solution', compact('id_user', 'nome', 'quiz', 'dificuldade', 'userC', 'Field'));
+        $quiz_answer = Quiz_answer::where('id_quiz', $idQ)->get();
+
+        return view('quiz_solution', compact('id_user', 'nome', 'quiz', 'dificuldade', 'userC', 'Field', 'quiz_answer', 'idQ'));
+    }
+
+    public function corrigeQuiz(Request $request)
+    {
+        $quiz_solution = Quiz_answer::where('id_quiz', $request->id_quiz)->get();
+        $quiz_exp = Quiz::where('id', $request->id_quiz)->first()->exp;
+        $i = 2;
+        $j = 0;
+        foreach ($quiz_solution as $q) {
+             if($request->$i == $q->ans_c)
+             {
+                $j++;
+             }
+             $i++;
+         }
+
+         $n = count($quiz_solution);
+
+         $result = $j/$n;
+
+         if($result > 0.6)
+         {
+            $id_user = Auth::user()->id;
+            $exp_user = User_attribute::where('id_user', $id_user)->first()->exp;
+            $new_exp = $exp_user + $quiz_exp;
+
+            $user = User_attribute::findOrFail($id_user);
+
+            $user->update([
+                'exp'   => $new_exp,
+                ]);
+
+            Quiz_user::create([
+                'id_user'       => $id_user,
+                'id_quiz'       => $request->id_quiz,
+                'question_c'    => $j,
+                'question_t'    => $n,
+                ]);
+
+            echo "<script>alert('Voce acertou ".$j." questão(ões)!!!')</script>";
+            echo " <script>window.location = '/perfil'</script>";
+           
+         }
+         echo "<script>alert('Voce acertou ".$j." questão(ões)!!!')</script>";
+         echo " <script>window.location = '/perfil'</script>";
+         
     }
 
     public function validarQuiz($id)

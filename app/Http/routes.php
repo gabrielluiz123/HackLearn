@@ -41,5 +41,6 @@ Route::group(['prefix' => '', 'middleware' => 'auth'], function(){
 		Route::get('/validateQuiz/{id}', 'QuizController@validarQuiz'); 
 		Route::post('/validateQuizUp', 'QuizController@validarQuizUpdate');	
 		Route::get('/ranking', 'UserController@ranking');
+		Route::post('/submeterQuiz', 'QuizController@corrigeQuiz');
 
 });

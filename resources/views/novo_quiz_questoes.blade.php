@@ -60,7 +60,7 @@
 								</form>
 								<br>
 								<div class="quiz-submit"> 
-									<a href="{{url('/')}}"><input class="btn btn-success" type="submit" value="Finalizar Quiz"></a>
+									<a href="{{url('/')}}"><input class="btn btn-success" type="button" value="Finalizar Quiz"></a>
 								</div>
 							</div>
 

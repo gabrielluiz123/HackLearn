@@ -23,6 +23,9 @@ class CreateQuizUserTable extends Migration
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('users')->onUpdate('cascade');
 
+            $table->integer('question_c');
+            $table->integer('question_t');
+
         });
     }
 
