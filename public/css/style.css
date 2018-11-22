@@ -399,3 +399,79 @@ hr{
 .quiz-card{
 	padding-top: 10px;
 }
+
+.paragrafos{
+	text-align: justify;
+	text-indent: 1.5em;
+	padding: 10px 0 5px 0;
+}
+
+input[type=text] {
+	background-color: #333;
+	border: 1px #82D9A5 solid;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	outline: none;
+}
+
+.form-group textarea{
+	background-color: #333;
+	border: 1px #82D9A5 solid;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	outline: none;
+}
+
+input[type=text]:focus {
+	transition: .2s all linear;
+	background-color: #E0FFF2;
+	border: 1px #82D9A5 solid;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	outline: none;
+}
+
+.form-group textarea:focus{
+	transition: .2s all linear;
+	background-color: #E0FFF2;
+	border: 1px #82D9A5 solid;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	outline: none;
+}
+
+label{
+	color: #82D9A5;	
+	font-size: 16px;
+}
+
+/* do not group these rules */
+*::-webkit-input-placeholder {
+	color: #82D9A5!important;
+}
+*:-moz-placeholder {
+	/* FF 4-18 */
+	color: #82D9A5!important;
+}
+*::-moz-placeholder {
+	/* FF 19+ */
+	color: #82D9A5!important;
+}
+*:-ms-input-placeholder {
+	/* IE 10+ */
+	color: #82D9A5!important;
+}
+
+/* do not group these rules */
+*:focus::-webkit-input-placeholder{
+	color: #333!important;
+}
+*:focus:-moz-placeholder:focus {
+	/* FF 4-18 */
+	color: #333!important;
+}
+*:focus::-moz-placeholder:focus {
+	/* FF 19+ */
+	color: #333!important;
+}
+*:focus:-ms-input-placeholder:focus {
+	/* IE 10+ */
+	color: #333!important;
+}
+
