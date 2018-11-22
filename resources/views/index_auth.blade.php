@@ -75,10 +75,12 @@
             <div class="mask-content-top10">
             {{$i=1}}
             @foreach($ranking as $r)
-              @if(!$i==1)
-                   - {{$r->name}} - EXP {{$r->exp}} EXP<br>
+
+              @if($i==1)
+                  - {{$r->name}} - EXP {{$r->exp}} EXP<br>
+                  {{$i++}}
               @else
-                {{$i++}} - {{$r->name}} - EXP: {{$r->exp}} <br>
+               {{$i++}} - {{$r->name}} - EXP: {{$r->exp}} <br>
               @endif  
             @endforeach
             </div>

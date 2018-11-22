@@ -60,30 +60,54 @@
                   	</div>
                   	<div class="container">
                   		<div class="row">
+                      @if($quiz_hacker > 0)
 	                  		<div class="col-md-2 conquista_simbol">
 	                  	   		<img src="./imgs/conq1.png" width="100px">
-	                  	    	<div class="conq-title">Nome Conq1</div>
+	                  	    	<div class="conq-title">Hacker quiz</div>
 	                  		</div>
+                      @endif
+                      @if($quiz_persistente > 0)
 		                  	<div class="col-md-2 conquista_simbol">
 	                  	   		<img src="./imgs/conq2.png" width="100px">
-	                  	    	<div class="conq-title">Nome Conq2</div>
+	                  	    	<div class="conq-title">Hacker persistente</div>
 	                  		</div>
+                      @endif
+                      @if($quiz_hacker_master > 0)
 	                  		<div class="col-md-2 conquista_simbol">
 	                  	   		<img src="./imgs/conq3.jpg" width="100px">
-	                  	    	<div class="conq-title">Nome Conq3</div>
+	                  	    	<div class="conq-title">Hecker master</div>
 	                  		</div>
+                      @endif
+                      @if($quiz_insistente > 0)
 	                  		<div class="col-md-2 conquista_simbol">
 	                  	   		<img src="./imgs/conq4.png" width="100px">
-	                  	    	<div class="conq-title">Nome Conq4</div>
+	                  	    	<div class="conq-title">Hacker insistente</div>
 	                  		</div>
+                      @endif
+                      @if($quiz_hacker_god > 0)
 	                  		<div class="col-md-2 conquista_simbol">
 	                  	   		<img src="./imgs/conq2.png" width="100px">
-	                  	    	<div class="conq-title">Nome Conq5</div>
+	                  	    	<div class="conq-title">Hacker god</div>
 	                  		</div>
+                      @endif
+                      @if($quiz_king_easy > 0)
 	                  		<div class="col-md-2 conquista_simbol">
 	                  	   		<img src="./imgs/conq6.png" width="100px">
-	                  	    	<div class="conq-title">Nome Conq6</div>
+	                  	    	<div class="conq-title">King of easy quiz</div>
 	                  		</div>
+                      @endif
+                      @if($quiz_king_mediun > 0)
+                        <div class="col-md-2 conquista_simbol">
+                            <img src="./imgs/conq4.png" width="100px">
+                            <div class="conq-title">King of mediun quiz</div>
+                        </div>
+                      @endif
+                      @if($quiz_king_hard > 0)
+                        <div class="col-md-2 conquista_simbol">
+                            <img src="./imgs/conq3.png" width="100px">
+                            <div class="conq-title">King of hard quiz</div>
+                        </div>
+                      @endif
 	                	</div>
                   	</div>
                 </div>

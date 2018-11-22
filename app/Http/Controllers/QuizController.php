@@ -119,9 +119,9 @@ class QuizController extends Controller
 
         $quiz = Quiz::where('id_field', $request->field)->where('id_difficulty', $request->dificuldade)->where('status', 1)->get();
 
+        $quiz_user = Quiz_user::where('id_user', $id_user)->get();
 
-
-        return view('quiz_page', compact('id_user', 'nome', 'quiz', 'dificuldade', 'field'));
+        return view('quiz_page', compact('id_user', 'nome', 'quiz', 'dificuldade', 'field', 'quiz_user'));
     }
 
     public function showQuiz($idQ)
@@ -188,6 +188,13 @@ class QuizController extends Controller
             echo " <script>window.location = '/perfil'</script>";
            
          }
+         $id_user = Auth::user()->id;
+         Quiz_user::create([
+                'id_user'       => $id_user,
+                'id_quiz'       => $request->id_quiz,
+                'question_c'    => $j,
+                'question_t'    => $n,
+                ]);
          echo "<script>alert('Voce acertou ".$j." questão(ões)!!!')</script>";
          echo " <script>window.location = '/perfil'</script>";
          

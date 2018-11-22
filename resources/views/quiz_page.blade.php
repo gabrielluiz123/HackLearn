@@ -25,11 +25,24 @@
                <p class="card-text">{{$q->description}} -- EXP: {{$q->exp}}</p>
             </div>
             <div class="quiz-submit"> 
+             {{$i=0}}
+            @foreach($quiz_user as $qu)
+               @if($qu->id_quiz == $q->id)
+                  {{$i=1}}
+               @endif
+            @endforeach
+            @if($i == 0)
                <a href="{{url('quizzesArea', $q->id)}}"><button type="button" class="btn btn-outline-success">Responder</button></a>
+            @endif
+               
             </div>
             <hr>
             <div class="card-info">
-               Realizado/Não realizado
+            @if($i == 1)
+               Realizado
+            @else
+               Nao realizado
+            @endif
             </div>
          </div>  
       </div>
