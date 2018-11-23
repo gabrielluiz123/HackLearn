@@ -11,7 +11,7 @@
                 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
                   <div class="carousel-inner">
                     <div class="carousel-item active">
-                      <img class="d-block w-100" src="./imgs/slider1.jpg" alt="First slide">
+                      <img class="d-block w-100" src="../imgs/slider1.jpg" alt="First slide">
                     </div>
                     <div class="carousel-item">
                       <img class="d-block w-100" src="../imgs/slider2.jpg" alt="Second slide">
@@ -41,25 +41,27 @@
             <div class="mask-content">
               <div class="card-postagem">
                  <div class="row">
-                    <div class="col-md-3">
-                      <div class="avatar-postagem">
-                          <img src="./imgs/mcdonalds.png" width="100px">
-                      </div>
-                    </div>
-                    <div class="col-md-9">
+                    <div class="col-md-12">
                       <div class="card-content">
-                        <div class="card-nome">
-                          História da empresa MC Donalds
+                        <div class="card-nome text-center">
+                          Aprenda os códigos mais utilizados do NMAP
                         </div>
                         <hr>
-                        <div class="card-description">
-                          A postagem conta a história do Mc Donalds
+                        <div class="card-description text-center">
+                          Tutorial sobre os principais códigos presentes na ferramenta NMAP durante um processo de invasão.
                         </div>
-                        <div class="card-link">
-                          <a href="post">
-                              Ler postagem completa...
+                        <hr>
+                        <div class="row">
+                        <div class="col-md-8 text-center">
+                          <div class="card-posted-by">Postado por:</div> Andre Beraldo, em 22/11
+                        </div>
+                        <div class="col-md-4 text-center card-link">
+                          <a href="link_geral">
+                              LER TUDO (+)
                           </a>
                         </div>
+                        </div>
+
                       </div>
                     </div>
                   </div> 

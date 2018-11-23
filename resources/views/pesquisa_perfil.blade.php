@@ -31,7 +31,7 @@
 					              		Título: Awesome Hacker<br>
 					              		Nível: 37
 					              	</div>
-					              	<a href="{{url('perfilUs', $p->id)}}"> Acessar Perfil</a>
+					              	<a class="link_geral" href="{{url('perfilUs', $p->id)}}" > Acessar Perfil</a>
 				            	</div>
             				</div>
             			</div>
