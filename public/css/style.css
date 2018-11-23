@@ -14,7 +14,7 @@
 }
 
 .nav-principal{
-	background-color: #111;
+	background-color: #222;
 	font-size: 25px;	
 }
 
@@ -37,8 +37,31 @@
 
 .nav-secundario{
 	background-color: #E0FFF2;
-	height: 50%;
+	height: 35px;
 	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.link-1 {
+  transition: 0.3s ease;
+  background: #3fa46a;
+  color: #ffffff;
+  font-size: 20px;
+  text-decoration: none;
+  border-top: 4px solid #3fa46a;
+  border-bottom: 4px solid #3fa46a;
+  padding: 20px 0;
+  margin: 0 20px;
+}
+.link-1:hover {
+  border-top: 4px solid #ffffff;
+  border-bottom: 4px solid #ffffff;
+  padding: 6px 0; 
+}
+@media (max-width: 576px){
+	.nav-secundario{
+		height: 25px;
+
+	}
 }
 
 .logarOuCadastrar{
@@ -147,34 +170,37 @@
 
 
 .card-postagem{
-	background-color: #eee;
+	background-color: #333;
 	margin-top: 15px;
 	padding: 15px;
+	border: 1px #82D9A5 solid;
 	border-radius: 5px 50px 5px;
 	box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.avatar-postagem{
-	text-align: center;
-}
-.avatar-postagem img{
-	text-align: center;
-	padding: 2px;
-	border: 1px solid #333;
-	border-radius: 100%;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
 .card-nome{
 	font-size: 25px;
+	color: #eee;
+	font-weight: 700;
 }
-
-.card-link{
-	text-align: right;
+.card-posted-by{
+	color:#82D9A5;
+	text-transform: uppercase;
+}
+.card-link a{
+	color:#82D9A5;
+	text-transform: uppercase;
+	font-size: 20px;
+	padding-top: 10px;
+}
+.card-link a:hover{
+	transition: .3s all linear;
+	color:#E0FFF2;
+	text-transform: uppercase;
 }
 
 .card-content{
-	color: #111;
+	color: #eee;
 }
 
 .home-page-perfil-text{
@@ -404,6 +430,21 @@ hr{
 	text-align: justify;
 	text-indent: 1.5em;
 	padding: 10px 0 5px 0;
+}
+
+input[type=search] {
+	background-color: #333;
+	border: 1px #82D9A5 solid;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	outline: none;
+}
+
+input[type=search]:focus {
+	transition: .2s all linear;
+	background-color: #E0FFF2;
+	border: 1px #82D9A5 solid;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	outline: none;
 }
 
 input[type=text] {
