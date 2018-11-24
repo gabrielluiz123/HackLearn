@@ -335,9 +335,15 @@ class UserController extends Controller
         }
 
         $post = Post::where('id_user', $id)->get();
+
+        $quiz = Quiz::get();
+        $nQuiz = count($quiz);
+
+        $quiz_user = Quiz_user::where('id_user', $id_user)->get();
+        $nQuizuser = count($quiz_user);
         
         
-        return view('perfilUs', compact('perfil', 'nome', 'id_user', 'attributes_exp', 'title', 'quiz_hacker', 'quiz_persistente', 'quiz_hacker_master', 'quiz_insistente', 'quiz_hacker_god', 'quiz_king_easy', 'quiz_king_mediun', 'quiz_king_hard', 'post'));
+        return view('perfilUs', compact('perfil', 'nome', 'id_user', 'attributes_exp', 'title', 'nQuiz', 'nQuizuser', 'quiz_hacker', 'quiz_persistente', 'quiz_hacker_master', 'quiz_insistente', 'quiz_hacker_god', 'quiz_king_easy', 'quiz_king_mediun', 'quiz_king_hard', 'post'));
     
     }
 

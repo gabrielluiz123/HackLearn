@@ -13,10 +13,11 @@
               {{$p->name}}
               	<div class="info-post">
               	  	Postado em: {{$p->created_at}}<br>
-              	  	Autor: {{$nome_user}}
+              	  	Autor: <a href="{{url('/perfilUs', $p->id_user)}}">{{$nome_user}}</a>
             	</div>
             </div>
             <div class="mask-content">
+              <img src="./imgs/mcdonalds.png" class="img-post" width="180px;">
               	<p class="post-text">{{$p->content}}</p>
             </div>
           </div>
