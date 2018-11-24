@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" class="no-scroll">
+<html lang="pt-BR">
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -12,11 +12,8 @@
 
   <title>Hack Learn - Plataforma de aprendizado em Cybersegurança</title>
 </head>
-<body class="background-body no-scroll">
-  <div class="spinner-ctn">
+<body class="background-body">
 
-    <div class="spinner"></div> 
-  </div>
   <nav class="navbar navbar-expand-lg navbar-light nav-principal">
     <!--<a class="navbar-brand" href="#">Brand</a>-->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false">
