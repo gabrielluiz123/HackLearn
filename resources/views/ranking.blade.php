@@ -10,7 +10,9 @@
                 RANKING
             </div>
             <div class="mask-content-top10">
-            {{$i=1}}
+            <?php 
+                $i=1;
+                ?>
             @foreach($ranking as $r)
                 <p>{{$i++}} - {{$r->name}} - EXP:{{$r->exp}}</p>  
             @endforeach

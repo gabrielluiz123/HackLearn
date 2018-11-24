@@ -28,9 +28,15 @@ class UserController extends Controller
         $id_user = Auth::user()->id;
         $nome = User::where('id', $id_user)->first()->name;
         $ranking = User_attribute::join('users', 'user_attributes.id', '=', 'users.id')->orderBy('user_attributes.exp', 'desc')->limit(10)->get();
-         
 
-        return view('index_auth', compact('nome', 'id_user', 'ranking'));
+        $post = Post::orderBy('id','desc')->first()->get();
+        foreach ($post as $p) {
+            $id = $p->id_user;
+            $nome_user = User::where('id', $id)->first()->name;
+        }
+     
+
+        return view('index_auth', compact('nome', 'id_user', 'ranking', 'post', 'nome_user'));
     }
 
     /**

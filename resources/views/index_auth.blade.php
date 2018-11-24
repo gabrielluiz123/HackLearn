@@ -41,22 +41,23 @@
             <div class="mask-content">
               <div class="card-postagem">
                  <div class="row">
+                 @foreach($post as $p)
                     <div class="col-md-12">
                       <div class="card-content">
                         <div class="card-nome text-center">
-                          Aprenda os códigos mais utilizados do NMAP
+                          {{$p->name}}
                         </div>
                         <hr>
                         <div class="card-description text-center">
-                          Tutorial sobre os principais códigos presentes na ferramenta NMAP durante um processo de invasão.
+                          {{$p->description}}
                         </div>
                         <hr>
                         <div class="row">
                         <div class="col-md-8 text-center">
-                          <div class="card-posted-by">Postado por:</div> Andre Beraldo, em 22/11
+                          <div class="card-posted-by">Postado por:</div> {{$nome_user}}, em {{$p->created_at}}
                         </div>
                         <div class="col-md-4 text-center card-link">
-                          <a href="link_geral">
+                          <a href="{{url('/post', $p->id)}}">
                               LER TUDO (+)
                           </a>
                         </div>
@@ -64,6 +65,7 @@
 
                       </div>
                     </div>
+                    @endforeach
                   </div> 
                 </div>
               </div>
@@ -75,12 +77,14 @@
               Ranking - TOP 10
             </div>
             <div class="mask-content-top10">
-            {{$i=1}}
+            <?php 
+              $i=1;
+            ?>
             @foreach($ranking as $r)
 
               @if($i==1)
-                  - {{$r->name}} - EXP {{$r->exp}} EXP<br>
-                  {{$i++}}
+                 {{$i++}} - {{$r->name}} - EXP {{$r->exp}} EXP<br>
+                  
               @else
                {{$i++}} - {{$r->name}} - EXP: {{$r->exp}} <br>
               @endif  

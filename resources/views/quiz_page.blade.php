@@ -25,7 +25,9 @@
                <p class="card-text">{{$q->description}} -- EXP: {{$q->exp}}</p>
             </div>
             <div class="quiz-submit"> 
-             {{$i=0}}
+             <?php 
+               $i=0;
+            ?>
             @foreach($quiz_user as $qu)
                @if($qu->id_quiz == $q->id)
                   {{$i=1}}
