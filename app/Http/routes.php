@@ -42,5 +42,9 @@ Route::group(['prefix' => '', 'middleware' => 'auth'], function(){
 		Route::post('/validateQuizUp', 'QuizController@validarQuizUpdate');	
 		Route::get('/ranking', 'UserController@ranking');
 		Route::post('/submeterQuiz', 'QuizController@corrigeQuiz');
+		Route::get('/post/{idP}', 'PostController@show');
+		Route::get('/postCreate', 'PostController@create');
+		Route::post('/postStore', 'PostController@store');
+
 
 });

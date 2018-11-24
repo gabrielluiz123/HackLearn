@@ -37,6 +37,9 @@
       <li class="nav-item active">
         <a class="nav-link" id="link" href="{{url('/newQuiz')}}">Criar Quiz <span class="sr-only">(current)</span></a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" id="link" href="{{url('/postCreate')}}">Criar Postagem <span class="sr-only">(current)</span></a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" id="link" href="{{url('/ranking')}}">Ranking</a>
       </li>

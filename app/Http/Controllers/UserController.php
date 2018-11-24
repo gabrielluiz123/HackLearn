@@ -14,6 +14,7 @@ use App\Quiz_answer;
 use App\User_attribute;
 use App\Title;
 use App\Quiz_user;
+use App\Post;
 
 class UserController extends Controller
 {
@@ -192,11 +193,12 @@ class UserController extends Controller
             $quiz_insistente = 1;
         }
 
+        $post = Post::where('id_user', $id_user)->get();
 
         if($type==1){
-            return view('index_auth_adm', compact('perfil', 'nome', 'id_user', 'quiz', 'numero', 'title', 'attributes_exp', 'nQuiz', 'nQuizuser', 'quiz_hacker', 'quiz_persistente', 'quiz_hacker_master', 'quiz_insistente', 'quiz_hacker_god', 'quiz_king_easy', 'quiz_king_mediun', 'quiz_king_hard'));
+            return view('index_auth_adm', compact('perfil', 'nome', 'id_user', 'quiz', 'numero', 'title', 'attributes_exp', 'nQuiz', 'nQuizuser', 'quiz_hacker', 'quiz_persistente', 'quiz_hacker_master', 'quiz_insistente', 'quiz_hacker_god', 'quiz_king_easy', 'quiz_king_mediun', 'quiz_king_hard', 'post'));
         }else{
-            return view('perfil', compact('perfil', 'nome', 'id_user', 'attributes_exp', 'title', 'nQuiz', 'nQuizuser', 'quiz_hacker', 'quiz_persistente', 'quiz_hacker_master', 'quiz_insistente', 'quiz_hacker_god', 'quiz_king_easy', 'quiz_king_mediun', 'quiz_king_hard'));
+            return view('perfil', compact('perfil', 'nome', 'id_user', 'attributes_exp', 'title', 'nQuiz', 'nQuizuser', 'quiz_hacker', 'quiz_persistente', 'quiz_hacker_master', 'quiz_insistente', 'quiz_hacker_god', 'quiz_king_easy', 'quiz_king_mediun', 'quiz_king_hard', 'post'));
         } 
         }  
         
@@ -213,9 +215,123 @@ class UserController extends Controller
         $attributes_exp = User_attribute::where('id_user', $id)->first()->exp;
 
         $perfil = User::where('id', $id)->get();
+
+        $quiz_sub_5 = Quiz_user::where('id_user', $id)->get();
+
+        $quiz_sub_facil = Quiz_user::join('quiz', 'quiz.id', '=', 'quiz_users.id_quiz')->where('quiz_users.id_user', $id)->where('quiz.id_difficulty', 1)->get();
+
+        $l = 0;
+        foreach ($quiz_sub_facil as $qsf) 
+        {
+            $questions = $qsf->question_t;
+            $questionsC = $qsf->question_c;
+            $c = $questionsC/$questions;
+            if($c >= 0.6)
+            {
+                $l++;
+
+
+            }   
+        }
+
+        $quiz_king_easy = 0;
+        if($l > 3)
+        {
+            $quiz_king_easy = 1;
+        }
+
+        $quiz_sub_medio = Quiz_user::join('quiz', 'quiz.id', '=', 'quiz_users.id_quiz')->where('quiz_users.id_user', $id)->where('quiz.id_difficulty', 2)->get();
+
+        $l = 0;
+        foreach ($quiz_sub_medio as $qsm) 
+        {
+            $questions = $qsm->question_t;
+            $questionsC = $qsm->question_c;
+            $c = $questionsC/$questions;
+            if($c >= 0.6)
+            {
+                $l++;
+
+
+            }   
+        }
+
+        $quiz_king_mediun = 0;
+        if($l > 3)
+        {
+            $quiz_king_mediun = 1;
+        }
+
+        $quiz_sub_dificil = Quiz_user::join('quiz', 'quiz.id', '=', 'quiz_users.id_quiz')->where('quiz_users.id_user', $id)->where('quiz.id_difficulty', 3)->get();
+
+        $l = 0;
+        foreach ($quiz_sub_dificil as $qsd) 
+        {
+            $questions = $qsd->question_t;
+            $questionsC = $qsd->question_c;
+            $c = $questionsC/$questions;
+            if($c >= 0.6)
+            {
+                $l++;
+
+
+            }   
+        }
+
+        $quiz_king_hard = 0;
+        if($l > 3)
+        {
+            $quiz_king_hard = 1;
+        }
+
+        $i = 0;
+        $j = 0;
+        $k = 0;
+        $quiz_hacker_god = 0;
+
+        foreach ($quiz_sub_5 as $q5) {
+            $i++;
+            $questions = $q5->question_t;
+            $questionsC = $q5->question_c;
+            $c = $questionsC/$questions;
+            if($c >= 0.6)
+            {
+                $j++;
+                $k++;
+                if($k==3)
+                {
+                    $quiz_hacker_god = 1;
+                }
+
+            }
+        }
+
+        $quiz_hacker = 0;
+        if($j>3)
+        {
+            $quiz_hacker = 1;
+        }
+        $quiz_persistente = 0;
+        if($i>3)
+        {
+            $quiz_persistente = 1;
+        }
+
+        $quiz_hacker_master = 0;
+        if($j>6)
+        {
+            $quiz_hacker_master = 1;
+        }
+        $quiz_insistente = 0;
+        if($i>6)
+        {
+            $quiz_insistente = 1;
+        }
+
+        $post = Post::where('id_user', $id)->get();
         
         
-        return view('perfilUs', compact('perfil', 'nome', 'id_user', 'attributes_exp', 'title'));
+        return view('perfilUs', compact('perfil', 'nome', 'id_user', 'attributes_exp', 'title', 'quiz_hacker', 'quiz_persistente', 'quiz_hacker_master', 'quiz_insistente', 'quiz_hacker_god', 'quiz_king_easy', 'quiz_king_mediun', 'quiz_king_hard', 'post'));
     
     }
 

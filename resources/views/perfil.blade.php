@@ -115,27 +115,24 @@
                 <div class="tab-pane fade" id="postagens" role="tabpanel">
                   	<div class="card-postagem">
                     	<div class="row">
-                      		<div class="col-md-2">
-                        		<div class="avatar-postagem">
-                          			<img src="./imgs/mcdonalds.png" width="100px">
-                        		</div>
-                     		</div>
+                        @foreach($post as $p)
 	                     	<div class="col-md-10">
 	                        	<div class="card-content">
 	                          		<div class="card-nome">
-	                            		História da empresa MC Donalds
+	                            		{{$p->name}}
 	                          		</div>
 	                          		<hr>
 	                          		<div class="card-description">
-	                            		A postagem conta a história do Mc Donalds
+	                            		{{$p->description}}
 	                          		</div>
 	                          		<div class="card-link">
-	                            		<a href="post">
+	                            		<a href="{{url('/post', $p->id)}}">
 	                           			Ler postagem completa...
 	                       				</a>
 	                          		</div>
 	                       	 	</div>
 	                     	 </div>
+                         @endforeach
                     	</div> 
                   	</div>
                 </div>
