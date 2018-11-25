@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR"  class="no-scroll">
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -12,8 +12,11 @@
 
   <title>Hack Learn - Plataforma de aprendizado em Cybersegurança</title>
 </head>
-<body class="background-body">
+<body class="background-body no-scroll">
+  <div class="spinner-ctn">
 
+    <div class="spinner"></div> 
+  </div>
   <nav class="navbar navbar-expand-lg navbar-light nav-principal">
     <!--<a class="navbar-brand" href="#">Brand</a>-->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false">
@@ -28,14 +31,23 @@
         <li class="nav-item">
           <a class="nav-link" id="link" href="#">Conceitos</a>
         </li>
-        <li class="nav-item">
+        <!--<li class="nav-item">
           <a class="nav-link" id="link" href="#">Cases</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="link" href="{{url('/area')}}">Quiz</a>
+        </li>-->
+        <!--<li class="nav-item">
+          <a class="nav-link" id="link" href="{{url('/area')}}">Quizzes</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" id="link" href="{{url('/newQuiz')}}">Criar Quiz <span class="sr-only">(current)</span></a>
+          <a class="nav-link" id="link" href="{{url('/newQuiz')}}">Sugerir Quiz <span class="sr-only">(current)</span></a>
+        </li>-->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Quiz
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="nav-link" id="link" href="{{url('/area')}}">Quizzes</a>
+            <a class="nav-link" id="link" href="{{url('/newQuiz')}}">Sugerir Quiz <span class="sr-only">(current)</span></a>
+          </div>
         </li>
         <li class="nav-item active">
           <a class="nav-link" id="link" href="{{url('/postCreate')}}">Criar Postagem <span class="sr-only">(current)</span></a>
@@ -43,55 +55,46 @@
         <li class="nav-item">
           <a class="nav-link" id="link" href="{{url('/ranking')}}">Ranking</a>
         </li>
-      <!--<li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>-->
-    </ul>
-    <form class="form-inline my-2 my-lg-0" method="POST" action="{{url('search')}}">
-      <input type="hidden" name="_token" value="{{ csrf_token() }}">
-      <input class="form-control mr-sm-2" required name="pesquisa" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-site" type="submit">Pesquisar</button>
+        
+      </ul>
+      <form class="form-inline my-2 my-lg-0" method="POST" action="{{url('search')}}">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <input class="form-control mr-sm-2" required name="pesquisa" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-site" type="submit">Pesquisar</button>
 
-    </form>
-  </div>
-</nav>
-<nav class="navbar navbar-light nav-secundario">
-  <span>Logado como <a href="{{url('perfil')}}">{{$nome}}</a></span>
-  <span class="right"><a href="{{url('auth/logout')}}">Deslogar</a></span>
-</nav>
+      </form>
+    </div>
+  </nav>
+  <nav class="navbar navbar-light nav-secundario">
+    <span>Logado como <a href="{{url('perfil')}}">{{$nome}}</a></span>
+    <span class="right"><a href="{{url('auth/logout')}}">Deslogar</a></span>
+  </nav>
 
-@yield ('content')
+  @yield ('content')
 
 
-<section class="footer fixed-bottom">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-       Trabalho Gerência de Projetos
+  <section class="footer fixed-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+         Trabalho Gerência de Projetos
 
-     </div>
+       </div>
 
-     <div class="col-md-6">
-       Universidade Federal de Itajubá
+       <div class="col-md-6">
+         Universidade Federal de Itajubá
+       </div>
      </div>
    </div>
- </div>
-</section>
+ </section>
 
-<!-- Optional JavaScript -->
+ <!-- Optional JavaScript -->
 
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="../js/custom.js"></script> 
+ <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+ <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ <script src="../js/custom.js"></script> 
 </body>
 </html>
