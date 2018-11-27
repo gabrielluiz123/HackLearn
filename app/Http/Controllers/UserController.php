@@ -29,7 +29,8 @@ class UserController extends Controller
         $nome = User::where('id', $id_user)->first()->name;
         $ranking = User_attribute::join('users', 'user_attributes.id', '=', 'users.id')->orderBy('user_attributes.exp', 'desc')->limit(10)->get();
 
-        $post = Post::orderBy('id','desc')->first()->get();
+        $post = Post::orderBy('id','desc')->limit('1')->get();
+
         foreach ($post as $p) {
             $id = $p->id_user;
             $nome_user = User::where('id', $id)->first()->name;
