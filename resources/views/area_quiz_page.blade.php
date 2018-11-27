@@ -17,12 +17,12 @@
    <div class="row">
 
    <form method="POST" action="{{url('/quizzes')}}">
-      
-      <div class="col-md-3">
       @foreach($fields as $f)
+      <div class="col-md-3">
+      
          <div class="card-box" style="width: 100%;">
          <form method="POST" action="{{url('/quizzes')}}">
-         
+                 
             <div class="card-body">
                <a href="posts/basicHeader.html"><h4 class="card-title">{{$f->name}}</h4></a><hr/>
                <p class="card-text">{{$f->description}}</p>
@@ -39,7 +39,7 @@
 
                                </select>
                               
-                     </div>
+                  </div>
                </div>
             </div>  
             
@@ -54,9 +54,9 @@
             
             </form>
          </div>
-         @endforeach
+         
       </div>  
-      
+      @endforeach
       </form>
    </div>
 
