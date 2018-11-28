@@ -60,6 +60,12 @@ class UserController extends Controller
             'type'=> 2,
             'password'=>bcrypt($request->senha),
             ]);
+         $user_id = User::orderBy('id', 'desc')->first()->id;
+         User_attribute::create([
+            'id_user'       =>$user_id,
+            'exp'=>         0,
+            'id_title'=>    1,
+            ]);
         return redirect('/');
     }
 

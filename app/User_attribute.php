@@ -13,7 +13,7 @@ class User_attribute extends Model
      *
      * @var array
      */
-    protected $fillable = ['id_user', 'exp', 'title'];
+    protected $fillable = ['id_user', 'exp', 'id_title'];
 
         public function User()
     {

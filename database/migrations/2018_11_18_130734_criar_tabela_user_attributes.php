@@ -21,7 +21,6 @@ class CriarTabelaUserAttributes extends Migration
             $table->integer('id_user')->unsigned()->unique();
             $table->foreign('id_user')->references('id')->on('users')->onUpdate('cascade');
 
-            $table->string('question');
             $table->integer('exp');
             $table->integer('id_title');
             
