@@ -30,7 +30,7 @@
 							<a class="nav-link" id="alterar-info-pill" data-toggle="tab" href="#alterar-info" role="tab" aria-controls="contact" aria-selected="false">Alterar Informações</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" id="validar-quizzes-pill" data-toggle="tab" href="#validar-quizzes" role="tab" aria-controls="contact" aria-selected="false">Validar Quizzes [{{$numero}}]</a>
+							<a class="nav-link" id="validar-quizzes-pill" data-toggle="tab" href="#validar-quizzes" role="tab" aria-controls="contact" aria-selected="false">Quizzes & Desafios[{{$numero}}]</a>
 						</li>
 					</ul>
 				</div>
@@ -178,27 +178,39 @@
 					</div>
 					<div class="tab-pane fade" id="validar-quizzes" role="tabpanel">
 						<div class="container">
+							<br>
+							<div class="row">
+								<div class="col-md-6 text-center">
+								<a href="{{url('/newQuiz')}}"><button type="button" class="btn btn-site">Adicionar novo quiz</button> </a>
+								</div>
+								<div class="col-md-6 text-center">
+								<a href="{{url('/')}}"><button type="button" class="btn btn-site">Adicionar novo desafio</button> </a>
+								</div>
+							</div>
+							<hr>
 							<div class="row">
 							
 
 								<!--Quiz começa aqui -->
+								@foreach($quiz as $q)
 								<div class="col-md-3">
 								
 									<div class="quiz-card">
-									@foreach($quiz as $q)
+									
 										<div class="card-box" style="width: 100%;">
 											<div class="card-body">
 												<a href="posts/basicHeader.html"><h4 class="card-title">{{$q->name}} </h4></a><hr/>
 												<p class="card-text">{{$q->description}}</p>
 											</div>
 											<div class="quiz-submit"> 
-												<a href="{{url('/validateQuiz', $q->id)}}"><button type="button" class="btn btn-outline-success">Analisar</button></a>
+												<a href="{{url('/validateQuiz', $q->id)}}"><button type="button" class="btn btn-site">Analisar</button></a>
 											</div>
 										</div>  
-										@endforeach
+										
 									</div>
 									
 								</div> 
+								@endforeach
 								<!--Termina aqui -->
 
 

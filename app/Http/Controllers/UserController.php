@@ -15,6 +15,7 @@ use App\User_attribute;
 use App\Title;
 use App\Quiz_user;
 use App\Post;
+use App\Challenge_answer;
 
 class UserController extends Controller
 {

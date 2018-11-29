@@ -55,12 +55,12 @@
 								<input type="hidden" name="id_quiz" id="id_quiz" value="{{$id_quiz}}">
 							<div class="col-md-2">
 								<div class="quiz-submit"> 
-									<input class="btn btn-success" type="submit" value="Proxima questao">
+									<input class="btn btn-site" type="submit" value="Proxima questao">
 								</div>
 								</form>
 								<br>
 								<div class="quiz-submit"> 
-									<a href="{{url('/')}}"><input class="btn btn-success" type="button" value="Finalizar Quiz"></a>
+									<a href="{{url('/')}}"><input class="btn btn-site" type="button" value="Finalizar Quiz"></a>
 								</div>
 							</div>
 

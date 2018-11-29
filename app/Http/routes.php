@@ -47,4 +47,5 @@ Route::group(['prefix' => '', 'middleware' => 'auth'], function(){
 		Route::post('/postStore', 'PostController@store');
 
 
+
 });

@@ -41,16 +41,21 @@
           <a class="nav-link" id="link" href="{{url('/newQuiz')}}">Sugerir Quiz <span class="sr-only">(current)</span></a>
         </li>-->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" id="link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Quiz
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="nav-link" id="link" href="{{url('/area')}}">Quizzes</a>
-            <a class="nav-link" id="link" href="{{url('/newQuiz')}}">Sugerir Quiz <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{{url('/area')}}">Realizar Quizzes</a>
+            <a class="nav-link" href="{{url('/newQuiz')}}">Sugerir Quiz <span class="sr-only">(current)</span></a>
           </div>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" id="link" href="{{url('/postCreate')}}">Criar Postagem <span class="sr-only">(current)</span></a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Postagem
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="nav-link" href="{{url('/postCreate')}}">Criar Postagem</a>
+          </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="link" href="{{url('/ranking')}}">Ranking</a>

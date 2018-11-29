@@ -67,10 +67,12 @@
 
 	.btn-site{
 		background-color: #6ACC91;
+		border-radius: 0;
 	}
 
 	.btn-site:hover{
 		background-color: #B7FEE0;
+		border-radius: 0;
 	}
 
 	.nav-secundario{
