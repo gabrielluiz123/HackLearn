@@ -231,10 +231,15 @@ class UserController extends Controller
 
         $post = Post::where('id_user', $id_user)->get();
 
+        $challenge_answer = challenge_answer::where('status', 0)->get();
+
+
+        $ca_numero = count($challenge_answer);
+
         if($type==1){
-            return view('index_auth_adm', compact('perfil', 'nome', 'id_user', 'quiz', 'numero', 'title', 'attributes_exp', 'nQuiz', 'nQuizuser', 'quiz_hacker', 'quiz_persistente', 'quiz_hacker_master', 'quiz_insistente', 'quiz_hacker_god', 'quiz_king_easy', 'quiz_king_mediun', 'quiz_king_hard', 'post'));
+            return view('index_auth_adm', compact('perfil', 'nome', 'id_user', 'quiz', 'numero', 'title', 'attributes_exp', 'nQuiz', 'nQuizuser', 'quiz_hacker', 'quiz_persistente', 'quiz_hacker_master', 'quiz_insistente', 'quiz_hacker_god', 'quiz_king_easy', 'quiz_king_mediun', 'quiz_king_hard', 'post', 'ca_numero', 'challenge_answer'));
         }else{
-            return view('perfil', compact('perfil', 'nome', 'id_user', 'attributes_exp', 'title', 'nQuiz', 'nQuizuser', 'quiz_hacker', 'quiz_persistente', 'quiz_hacker_master', 'quiz_insistente', 'quiz_hacker_god', 'quiz_king_easy', 'quiz_king_mediun', 'quiz_king_hard', 'post'));
+            return view('perfil', compact('perfil', 'nome', 'id_user', 'attributes_exp', 'title', 'nQuiz', 'nQuizuser', 'quiz_hacker', 'quiz_persistente', 'quiz_hacker_master', 'quiz_insistente', 'quiz_hacker_god', 'quiz_king_easy', 'quiz_king_mediun', 'quiz_king_hard', 'post', 'ca_numero', 'challenge_answer'));
         } 
         }  
         

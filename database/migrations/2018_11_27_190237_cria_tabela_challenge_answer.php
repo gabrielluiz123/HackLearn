@@ -23,7 +23,7 @@ class CriaTabelaChallengeAnswer extends Migration
            $table->integer('language_id')->unsigned();
             $table->foreign('language_id')->references('id')->on('languages')->onUpdate('cascade');
 
-
+            $table->integer('status');
             
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('users')->onUpdate('cascade');

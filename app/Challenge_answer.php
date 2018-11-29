@@ -13,5 +13,5 @@ class Challenge_answer extends Model
      *
      * @var array
      */
-    protected $fillable = ['id_user', 'id_challenge', 'answer', 'language_id'];
+    protected $fillable = ['id_user', 'id_challenge', 'status', 'answer', 'language_id'];
 }
