@@ -405,7 +405,7 @@ class UserController extends Controller
         $quiz = Quiz::get();
         $nQuiz = count($quiz);
 
-        $quiz_user = Quiz_user::where('id_user', $id_user)->get();
+        $quiz_user = Quiz_user::where('id_user', $id)->get();
         $nQuizuser = count($quiz_user);
         
         $nChallenge = count(Challenge::get());
