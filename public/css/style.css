@@ -2,7 +2,7 @@
 *{
 	margin: 0;
 	padding: 0;
-	font-family: 'Ubuntu', sans-serif;
+	font-family: 'Raleway', sans-serif;
 }
 
 
@@ -53,7 +53,11 @@
 
 	.nav-principal{
 		background-color: #222;
-		font-size: 25px;	
+		font-size: 20px;	
+	}
+
+	.nav-link{
+		font-family: 'Russo One', sans-serif;
 	}
 
 	#link{
@@ -68,6 +72,7 @@
 	.btn-site{
 		background-color: #6ACC91;
 		border-radius: 0;
+		font-family: 'Russo One', sans-serif;
 	}
 
 	.btn-site:hover{
@@ -80,6 +85,8 @@
 		height: 35px;
 		box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	}
+
+
 
 	.link-1 {
 		transition: 0.3s ease;
@@ -144,9 +151,6 @@
 		margin:0 auto;
 	}
 
-	.logarOuCadastrar{
-
-	}
 
 	.logarOuCadastrar:hover{
 		cursor: pointer;
@@ -166,8 +170,6 @@
 		padding-bottom: 10px;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 		border: 1px solid #6ACC91;
-		border-radius: 3px;
-
 	}
 
 	.mask-title{
@@ -178,6 +180,7 @@
 		text-transform: uppercase;
 		font-size: 25px;
 		text-align: center;
+		font-family: 'Russo One', sans-serif;
 	}
 
 	.mask-content{
@@ -246,6 +249,7 @@
 	.nav-item{
 		border-radius: 0px;
 		border-left: 1px solid #111;
+
 	}
 
 
@@ -286,7 +290,7 @@
 	.home-page-perfil-text{
 		text-transform: uppercase;
 		text-align: center;
-		font-size: 24px;
+		font-size: 20px;
 		padding: 30px;
 		font-weight: 800;
 		color: #82D9A5;
@@ -295,11 +299,12 @@
 	.home-page-perfil-text-nivel{
 		text-transform: uppercase;
 		text-align: center;
-		font-size: 28px;
+		font-size: 26px;
 		margin-top:35px;
 		padding: 20px;
 		font-weight: 800;
 		color: #82D9A5;
+		font-family: 'Russo One', sans-serif;
 	}
 
 	.home-page-perfil-text-exp{
@@ -322,6 +327,7 @@
 		text-align: center;
 		font-size: 16px;
 		color:#eee;
+		font-family: 'Russo One', sans-serif;
 	}
 
 	.hr-style{
@@ -403,13 +409,12 @@
 
 
 	.quiz-title{
-		border-bottom: 2px solid;
 		color: #82D9A5;
 		padding-bottom: 10px;
-		font-weight: 600;
 		text-transform: uppercase;
 		font-size: 25px;
 		text-align: center;
+		font-family: 'Russo One', sans-serif;
 	}
 
 	.quiz-info{
@@ -466,7 +471,6 @@
 
 	.card-box {
 		border: 1px solid #82D9A5;
-		border-radius: 5px;
 		background-color: #000;
 		color: #fff;
 		text-align: center;
@@ -492,7 +496,7 @@
 	}
 
 	.card-box h4:hover{
-		color: #99FFC2;
+		color: #82D9A5;
 		transition: 0.5s;
 		text-decoration: none;
 	}
@@ -626,3 +630,46 @@
 		color: #333!important;
 	}
 
+
+.card-body h4{
+	font-family: 'Russo One', sans-serif;
+	color: #82D9A5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ul.navbar-nav .nav-item:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 0;
+    transition: width .5s ease, background-color .5s ease;
+}
+.navbar-nav .nav-item:hover:after {
+    width: 100%;
+    background: #82D9A5;
+}

@@ -33,7 +33,7 @@
 									<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								<div class="col-md-12 text-center">
 									<div class="quiz-submit"> 
-										<input class="btn btn-success" type="submit" value="Realizar postagem">
+										<input class="btn btn-site" type="submit" value="Realizar postagem">
 									</div>
 								</div>
 

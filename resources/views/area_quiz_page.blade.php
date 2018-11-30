@@ -22,7 +22,7 @@
          <form method="POST" action="{{url('/quizzes')}}">
                  
             <div class="card-body">
-               <a href="posts/basicHeader.html"><h4 class="card-title">{{$f->name}}</h4></a><hr/>
+               <h4 class="card-title">{{$f->name}}</h4><hr/>
                <p class="card-text">{{$f->description}}</p>
             </div>
 

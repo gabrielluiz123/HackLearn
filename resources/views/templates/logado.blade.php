@@ -8,7 +8,8 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" type="text/css" href="../css/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
 
   <title>Hack Learn - Plataforma de aprendizado em Cybersegurança</title>
 </head>
@@ -31,15 +32,6 @@
         <li class="nav-item">
           <a class="nav-link" id="link" href="#">Conceitos</a>
         </li>
-        <!--<li class="nav-item">
-          <a class="nav-link" id="link" href="#">Cases</a>
-        </li>-->
-        <!--<li class="nav-item">
-          <a class="nav-link" id="link" href="{{url('/area')}}">Quizzes</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" id="link" href="{{url('/newQuiz')}}">Sugerir Quiz <span class="sr-only">(current)</span></a>
-        </li>-->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Quiz
@@ -50,7 +42,7 @@
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" id="link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Postagem
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">

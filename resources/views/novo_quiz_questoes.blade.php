@@ -6,7 +6,8 @@
 
 <div class="container principal">
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
 			<div class="container mask">
 				<div class="quiz-title">
 					{{$nome_quiz}}
@@ -37,36 +38,42 @@
 							<input type="text" class="form-control" id="q4" name="q4" placeholder="Escreva a quarta alternativa">
 						</div>
 						<hr>
-						<div class="row">
+						<div class="row text-center">
 							<!--Dropdown dificuldade -->
-							<div class="col-md-5">
+							<div class="col-md-4">
 								<div class="dropdown show">
-								<label for="exampleFormControlSelect1">Resposta certa:</label>
+								<label for="exampleFormControlSelect1">Resposta correta:</label>
 									 <select class="dropdown show" name="certa" id="certa">
-                        					<option value="1">A</option>
-                        					<option value="2">B</option>
-                        					<option value="3">C</option>
-                        					<option value="4">D</option>
+                        					<option value="1"> 1 </option>
+                        					<option value="2"> 2 </option>
+                        					<option value="3"> 3 </option>
+                        					<option value="4"> 4 </option>
 
                     				 </select>
 								</div>
 							</div>
+							<div class="col-md-4">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								<input type="hidden" name="id_quiz" id="id_quiz" value="{{$id_quiz}}">
-							<div class="col-md-2">
 								<div class="quiz-submit"> 
 									<input class="btn btn-site" type="submit" value="Proxima questao">
 								</div>
-								</form>
-								<br>
+								
+
+							</div>
+							<div class="col-md-4">
 								<div class="quiz-submit"> 
 									<a href="{{url('/')}}"><input class="btn btn-site" type="button" value="Finalizar Quiz"></a>
 								</div>
+
+							</div>
+							</form>
 							</div>
 
 						</div>
 					
 				</div>
+				<div class="col-md-1"></div>
 
 			</div>
 		</div>

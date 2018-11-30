@@ -6,7 +6,8 @@
 
 <div class="container principal">
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
 			<div class="container mask">
 				<div class="quiz-title">
 					SUGERINDO NOVO QUIZ
@@ -60,6 +61,7 @@
 
 			</div>
 		</div>
+		<div class="col-md-1"></div>
 	</div>
 </div> 
 
