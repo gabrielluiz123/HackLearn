@@ -36,7 +36,7 @@
                @endif
             @endforeach
             @if($i == 0)
-               <a href="{{url('quizzesArea', $q->id)}}"><button type="button" class="btn btn-outline-success">Responder</button></a>
+               <a href="{{url('quizzesArea', $q->id)}}"><button type="button" class="btn btn-site">Responder</button></a>
             @endif
                
             </div>

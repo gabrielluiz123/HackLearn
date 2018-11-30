@@ -44,7 +44,7 @@
             <div class="quiz-submit"> 
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="field" id="field" value="{{$f->id}}">
-             <button type="submit" class="btn btn-site">Consultar</button>
+             <button type="submit" class="btn btn-site" id="successClickQuiz">Consultar</button>
             </div>
 
 

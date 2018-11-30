@@ -306,6 +306,15 @@
 		color: #82D9A5;
 		font-family: 'Russo One', sans-serif;
 	}
+	.home-page-perfil-text-nivel-2{
+		text-transform: uppercase;
+		font-size: 26px;
+		margin-top:35px;
+		padding: 20px;
+		font-weight: 800;
+		color: #82D9A5;
+		font-family: 'Russo One', sans-serif;
+	}
 
 	.home-page-perfil-text-exp{
 		margin-top:5px;
@@ -631,10 +640,10 @@
 	}
 
 
-.card-body h4{
-	font-family: 'Russo One', sans-serif;
-	color: #82D9A5;
-}
+	.card-body h4{
+		font-family: 'Russo One', sans-serif;
+		color: #82D9A5;
+	}
 
 
 
@@ -662,14 +671,14 @@
 
 
 
-ul.navbar-nav .nav-item:after {
-    content: '';
-    display: block;
-    height: 3px;
-    width: 0;
-    transition: width .5s ease, background-color .5s ease;
-}
-.navbar-nav .nav-item:hover:after {
-    width: 100%;
-    background: #82D9A5;
-}
+	ul.navbar-nav .nav-item:after {
+		content: '';
+		display: block;
+		height: 3px;
+		width: 0;
+		transition: width .5s ease, background-color .5s ease;
+	}
+	.navbar-nav .nav-item:hover:after {
+		width: 100%;
+		background: #82D9A5;
+	}

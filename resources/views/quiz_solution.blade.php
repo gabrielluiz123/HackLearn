@@ -59,7 +59,7 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <input type="hidden" name="id_quiz" value="{{$idQ}}">
             <div class="quiz-submit"> 
-               <button type="submit" class="btn btn-outline-success">Submeter</button>
+               <button type="submit" class="btn btn-site">Submeter</button>
             </div>
             </form>
             

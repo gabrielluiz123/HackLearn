@@ -3,18 +3,23 @@
 @section('content')
 
 
+
+
 <div class="container principal">
     <div class="row">
       <div class="col-md-12">
         <div class="container mask">
-            <div class="mask-title">
+            <div class="slider">
                 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
                   <div class="carousel-inner">
                     <div class="carousel-item active">
                       <img class="d-block w-100" src="../imgs/slider1.jpg" alt="First slide">
                     </div>
                     <div class="carousel-item">
-                      <img class="d-block w-100" src="../imgs/slider2.jpg" alt="Second slide">
+                      <img class="d-block w-100" src="../imgs/slider3.jpg" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="../imgs/slider2.jpg" alt="Third slide">
                     </div>
                   </div>
                   <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
@@ -52,9 +57,9 @@
                           {{$p->description}}
                         </div>
                         <hr>
-                        <div class="row">
-                        <div class="col-md-8 text-center">
-                          <div class="card-posted-by">Postado por:</div> {{$nome_user}}, em {{$p->created_at}}
+                        <div class="row" style="font-size: 14px;">
+                        <div class="col-md-8 text-center" >
+                          <div class="card-posted-by" >Postado por:</div> {{$nome_user}}, em {{$p->created_at}}
                         </div>
                         <div class="col-md-4 text-center card-link">
                           <a href="{{url('/post', $p->id)}}">
