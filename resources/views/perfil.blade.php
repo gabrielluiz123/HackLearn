@@ -44,7 +44,7 @@
 		                  				<div class="home-page-perfil-text-exp">
 				                  			Experiência: {{$attributes_exp}}<br>
 				                  			Quizes: [{{$nQuizuser}}/{{$nQuiz}}]<br>
-				                  			Cases: [2/4]
+				                  			Cases: [{{$nChallengeF}}/{{$nChallenge}}]
 				                 		</div>	
 		                  			</div>
 	                  			</div>
