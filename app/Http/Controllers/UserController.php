@@ -75,8 +75,31 @@ class UserController extends Controller
         $id_user = Auth::user()->id;
         $nome = User::where('id', $id_user)->first()->name;
 
+           $user_attributes_exp = User_attribute::where('id_user', $id_user)->first()->exp;
+
+        if($user_attributes_exp >= 0 && $user_attributes_exp < 499)
+        {
+            $user_attributes_title = 1;
+        }
+         if($user_attributes_exp >= 500 && $user_attributes_exp < 999)
+        {
+            $user_attributes_title = 2;
+        }
+
+         if($user_attributes_exp >= 1000)
+        {
+            $user_attributes_title = 3;
+        }
+
+        DB::table('user_attributes')->
+        where('id_user', $id_user)->
+        update(['id_title' => $user_attributes_title]);
+
         $perfil = User::where('id', $id_user)->get();
         $type = Auth::user()->type;
+
+     
+
 
         $quiz = Quiz::where('status', 0)->get();
 
@@ -222,8 +245,30 @@ class UserController extends Controller
         $id_user = Auth::user()->id;
         $nome = Auth::user()->name;
 
+        $user_attributes_exp = User_attribute::where('id_user', $id)->first()->exp;
+
+        if($user_attributes_exp >= 0 && $user_attributes_exp < 499)
+        {
+            $user_attributes_title = 1;
+        }
+         if($user_attributes_exp >= 500 && $user_attributes_exp < 999)
+        {
+            $user_attributes_title = 2;
+        }
+
+         if($user_attributes_exp >= 1000)
+        {
+            $user_attributes_title = 3;
+        }
+
+        DB::table('user_attributes')->
+        where('id_user', $id)->
+        update(['id_title' => $user_attributes_title]);
+
         $attributes_title = User_attribute::where('id_user', $id)->first()->id_title;
         $title = Title::where('id', $attributes_title)->first()->name;
+
+
 
         $attributes_exp = User_attribute::where('id_user', $id)->first()->exp;
 
