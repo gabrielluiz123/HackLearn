@@ -58,6 +58,9 @@
           </div>
         </li>
         <li class="nav-item">
+          <a class="nav-link" id="link" href="{{url('/areaChallenge')}}">Desafios</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" id="link" href="{{url('/ranking')}}">Ranking</a>
         </li>
         

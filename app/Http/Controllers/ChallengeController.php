@@ -11,6 +11,7 @@ use Auth;
 use App\Challenge_answer;
 use App\User;
 use App\User_attribute;
+use App\Language;
 
 class ChallengeController extends Controller
 {
@@ -25,7 +26,7 @@ class ChallengeController extends Controller
         $id_user = Auth::user()->id;
         $nome = User::where('id', $id_user)->first()->name;  
 
-        return view('criar_desafio', compact('nome'));     
+        return view('novo_desafio', compact('nome'));     
     }
 
     /**
@@ -71,7 +72,7 @@ class ChallengeController extends Controller
 
         $desafios_user = Challenge_answer::where('id_user', $id_user)->get();
 
-        return view('desafios', compact('nome', 'desafios', 'desafios_user'));
+        return view('desafio_page', compact('nome', 'desafios', 'desafios_user'));
     }
 
     public function showDesafio($idD)
@@ -81,16 +82,42 @@ class ChallengeController extends Controller
 
         $desafio = Challenge::where('id', $idD)->get();
 
-        return view('desafio_responder', compact('nome', 'desafio'));
+        $linguagem = Language::get();
+
+
+        return view('desafio_answer', compact('nome', 'desafio', 'linguagem'));
+    }
+
+    public function showDesafioCorrige($idD)
+    {
+        $id_user = Auth::user()->id;
+        $nome = User::where('id', $id_user)->first()->name; 
+
+           $desafio_answer = Challenge_answer::where('id', $idD)->get();
+
+           $desafio_id = Challenge_answer::where('id', $idD)->first()->id_challenge;
+           $user_id = Challenge_answer::where('id', $idD)->first()->id_user;
+           $language_id = Challenge_answer::where('id', $idD)->first()->language_id;
+
+           $user_nome = User::where('id', $user_id)->first()->name;
+           $language = Language::where('id', $language_id)->first()->name;
+
+
+
+
+           $desafio = Challenge::where('id', $desafio_id)->get();
+               
+
+        return view('validar_desafio', compact('nome', 'desafio_answer', 'desafio', 'user_nome', 'language'));
     }
 
     public function storeChallengeAnswer(Request $request)
     {
         $id_user = Auth::user()->id;
-
         Challenge_answer::create([
             'answer'        => $request->answer,
             'language_id'   => $request->language,
+            'status'        => 0,
             'id_user'       => $id_user,
             'id_challenge'  => $request->challenge,     
 

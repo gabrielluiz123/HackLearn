@@ -45,7 +45,14 @@ Route::group(['prefix' => '', 'middleware' => 'auth'], function(){
 		Route::get('/post/{idP}', 'PostController@show');
 		Route::get('/postCreate', 'PostController@create');
 		Route::post('/postStore', 'PostController@store');
-
+		Route::get('/newChallenge', 'ChallengeController@index');
+		Route::post('/storeChallenge', 'ChallengeController@store');
+		Route::get('/areaChallenge', 'ChallengeController@show');
+		Route::get('/desafiosArea/{idD}', 'ChallengeController@showDesafio');
+		Route::post('/submeterDesafio', 'ChallengeController@storeChallengeAnswer');
+		Route::get('/validateDesafio/{idD}', 'ChallengeController@showDesafioCorrige');
+		Route::get('/declineDesafio/{idD}', 'ChallengeController@ChallengeErrado');
+		Route::get('/acceptDesafio/{idD}', 'ChallengeController@CorrigeChallenge');
 
 
 });

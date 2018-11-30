@@ -24,7 +24,9 @@
             </div>
             @endforeach
             <hr>
-            {{$i=1}}
+            <?php
+              $i=1;
+            ?>
             @foreach($quiz_answer as $qa)
             <div class="quiz-content">
             <br><br>

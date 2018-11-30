@@ -30,7 +30,7 @@
 							<a class="nav-link" id="alterar-info-pill" data-toggle="tab" href="#alterar-info" role="tab" aria-controls="contact" aria-selected="false">Alterar Informações</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" id="validar-quizzes-pill" data-toggle="tab" href="#validar-quizzes" role="tab" aria-controls="contact" aria-selected="false">Quizzes & Desafios[{{$numero}}]</a>
+							<a class="nav-link" id="validar-quizzes-pill" data-toggle="tab" href="#validar-quizzes" role="tab" aria-controls="contact" aria-selected="false">Quizzes[{{$nChallengeP}}] & Desafios[{{$nQuizP}}]</a>
 						</li>
 					</ul>
 				</div>
@@ -50,7 +50,7 @@
 										<div class="home-page-perfil-text-exp">
 											Experiência: {{$attributes_exp}}<br>
 											Quizes: [{{$nQuizuser}}/{{$nQuiz}}]<br>
-											Cases: [2/4]
+											Cases: [{{$nChallengeF}}/{{$nChallenge}}]
 										</div>	
 									</div>
 								</div>
@@ -184,14 +184,18 @@
 								<a href="{{url('/newQuiz')}}"><button type="button" class="btn btn-site">Adicionar novo quiz</button> </a>
 								</div>
 								<div class="col-md-6 text-center">
-								<a href="{{url('/')}}"><button type="button" class="btn btn-site">Adicionar novo desafio</button> </a>
+								<a href="{{url('/newChallenge')}}"><button type="button" class="btn btn-site">Adicionar novo desafio</button> </a>
 								</div>
 							</div>
 							<hr>
+							<div class="nome-perfil">
+						Quizzes:
+					</div>
 							<div class="row">
 							
 
 								<!--Quiz começa aqui -->
+
 								@foreach($quiz as $q)
 								<div class="col-md-3">
 								
@@ -199,7 +203,7 @@
 									
 										<div class="card-box" style="width: 100%;">
 											<div class="card-body">
-												<a href="posts/basicHeader.html"><h4 class="card-title">{{$q->name}} </h4></a><hr/>
+												<h4 class="card-title">{{$q->name}} </h4><hr/>
 												<p class="card-text">{{$q->description}}</p>
 											</div>
 											<div class="quiz-submit"> 
@@ -212,7 +216,34 @@
 								</div> 
 								@endforeach
 								<!--Termina aqui -->
+								</div>
+								<br>
+									<div class="nome-perfil">
+									
+						Desafios:
 
+							
+					</div>
+					<div class="row">
+						@foreach($challenge_answer as $c)
+								<div class="col-md-3">
+								
+									<div class="quiz-card">
+									
+										<div class="card-box" style="width: 100%;">
+											<div class="card-body">
+												<h4 class="card-title">{{$c->name}} </h4><hr/>
+												<p class="card-text">{{$c->description}}</p>
+											</div>
+											<div class="quiz-submit"> 
+												<a href="{{url('/validateDesafio', $c->id)}}"><button type="button" class="btn btn-site">Analisar</button></a>
+											</div>
+										</div>  
+										
+									</div>
+									
+								</div> 
+								@endforeach
 
 							</div>
 						</div>
