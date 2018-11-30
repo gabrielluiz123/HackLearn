@@ -73,17 +73,12 @@
   </nav>
 
   @yield ('content')
-<div class="container">
-<button class="btn btn-primary" id="infoClick">Info</button>
-<button class="btn btn-success" id="successClick">Success</button>
 
-
-  </div>
   <section class="footer fixed-bottom">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-         Trabalho Gerência de Projetos
+         Trabalho Gerência de Projetos - 2018.2
 
        </div>
 
